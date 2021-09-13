@@ -24,13 +24,14 @@ export class EmployeeLoginComponent implements OnInit {
 
   checkEmp(){
     let login = this.empRef.value
-    console.log(login);
     
     this.empSur.checkEmpDetails(login).
     subscribe(result=>{
       if(result == "success"){
-        //console.log(login.password);
-        if(login.pname == "welcome123"){
+        console.log(login.password);
+        if(login.password == "welcome123"){
+          console.log("hit");
+          
           this.router.navigate(["changePassword",login.uname])
         }
         else{

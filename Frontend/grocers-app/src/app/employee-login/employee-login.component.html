@@ -1,14 +1,14 @@
-<div>
-    <h1>Employee Login Page</h1>
+<h1>Employee Login Page</h1>
+<div class = "container"><br>
     <form [formGroup] = "empRef" (ngSubmit)="checkEmp()">
-        <label>Username</label>
-        <input type="text" formControlName="uname"/><br/>
-        <label>Password</label>
-        <input type="password" formControlName="password"/><br/>
-        <input type="submit" value="Sign In"/>
-        <input type="reset" value="reset"/>
+        <label class="form-label" >Username</label>
+        <input class="form-control" type="text" formControlName="uname"/><br/>
+        <label class="form-label" >Password</label>
+        <input class="form-control" type="password" formControlName="password"/><br/>
+        <input class="btn btn-primary" type="submit" value="Sign In"/> &nbsp;&nbsp; 
+        <input class="btn btn-secondary" type="reset" value="reset"/>
     </form>
     <br/>
     <br/>
-    {{msg}}
+    <span style="color: red;">{{msg}}</span>
 </div>

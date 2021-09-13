@@ -1,10 +1,10 @@
-<div>
-    <h1>Change Password For {{user}}</h1>
+<h1>Change Password For {{user}}</h1>
+<div class = "container">
     <form [formGroup] = "changeRef" (ngSubmit)="changePass()">
-        <label>New Password</label>
-        <input type="text" formControlName="password"/><br/>
-        <input type="submit" value="Sign In"/>
-        <input type="reset" value="reset"/>
+        <label class="form-label" >New Password</label>
+        <input class="form-control" type="text" formControlName="password"/><br/>
+        <input class="btn btn-primary" type="submit" value="Change Password"/>&nbsp;&nbsp;
+        <input class="btn btn-secondary" type="reset" value="reset"/>
     </form>
     <br/>
     <br/>
