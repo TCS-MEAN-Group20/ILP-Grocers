@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { EmpLoginService } from '../emp-login.service';
 
 @Component({
@@ -9,10 +10,13 @@ import { EmpLoginService } from '../emp-login.service';
 })
 export class EmployeeDashComponent implements OnInit {
   
-  msg?:string
-  constructor() { }
+  user?:string
+  constructor(
+    public activateRoute:ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
+    this.activateRoute.params.subscribe(data=>this.user=data.user);
   }
 
 
