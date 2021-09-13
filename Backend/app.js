@@ -18,6 +18,7 @@ catch(error=>console.log(error))
 //http://localhost:9090/api/emp/getAllEmployees
 //http://localhost:9090/api/emp/deleteEmp/:eid
 //http://localhost:9090/api/emp/storeEmp
+//http://localhost:9090/api/emp/changePassword
 app.use("/api/emp",routerEmp);
 
 app.listen(9090,()=>console.log("Server running on port number 9090"))

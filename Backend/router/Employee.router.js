@@ -6,5 +6,6 @@ router.post("/empSignIn", empController.signIn);
 router.get("/getAllEmployees", empController.getAllEmpDetails);
 router.delete("/deleteEmp/:eid",empController.deleteEmployee);
 router.post("/storeEmp", empController.storeEmployee);
+router.put("/changePassword", empController.updateEmpPassword)
 
 module.exports=router;

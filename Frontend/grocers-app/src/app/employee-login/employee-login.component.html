@@ -1,0 +1,14 @@
+<div>
+    <h1>Employee Login Page</h1>
+    <form [formGroup] = "empRef" (ngSubmit)="checkEmp()">
+        <label>Username</label>
+        <input type="text" formControlName="uname"/><br/>
+        <label>Password</label>
+        <input type="password" formControlName="password"/><br/>
+        <input type="submit" value="Sign In"/>
+        <input type="reset" value="reset"/>
+    </form>
+    <br/>
+    <br/>
+    {{msg}}
+</div>

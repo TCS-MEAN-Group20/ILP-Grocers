@@ -3,9 +3,10 @@ let empModel = require("../model/Employee.model");
 //employee sign in page
 let signIn = async (request,response)=>{
     let emp = request.body;
+    //console.log(emp);
     let empInfo = await empModel.findOne({uname:emp.uname, password:emp.password});
     if(empInfo != null){
-        response.send("sucess")
+        response.send("success")
     }
     else{
         response.send("Invalid Username or Password")
@@ -53,4 +54,16 @@ let deleteEmployee = (request,response)=>{
     })
 }
 
-module.exports={getAllEmpDetails,storeEmployee,deleteEmployee,signIn}
+let updateEmpPassword = (request,response)=>{
+    let emp = request.body;
+    empModel.updateOne({uname:emp.uname},{$set:{password:emp.password}}, (err,result)=>{
+        if(!err){
+            response.send("Password Updated")
+        }
+        else{
+            response.send("error")
+        }
+    })
+}
+
+module.exports={getAllEmpDetails,storeEmployee,deleteEmployee,signIn,updateEmpPassword}
