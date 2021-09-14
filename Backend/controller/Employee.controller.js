@@ -36,8 +36,7 @@ let storeEmployee = (request,response) =>{
         }
         else{
             //not a unique id
-            console.log("hitt2");
-            response.send(err)
+            response.send("Employee Username is not unique")
         }
     })
 }

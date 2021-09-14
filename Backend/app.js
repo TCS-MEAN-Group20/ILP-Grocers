@@ -9,7 +9,7 @@ let app = express();
 app.use(cors());
 app.use(bodyParser.json())
 
-let url = "mongodb://localhost:27017/groceryDb"
+let url = "mongodb+srv://group20-admin:meanstack@cluster0.klcs8.mongodb.net/groceryDB"
 
 mongoose.connect(url).then(res=>console.log("connected to db")).
 catch(error=>console.log(error))
