@@ -24,4 +24,16 @@ let storeUser = (request,response)=>{
     })
 }
 
-module.exports={signIn,storeUser}
+let getUserDetailsById = (request,response)=>{
+    let uname = request.body;
+    userModel.findOne({uname:uname.uname},(err,data)=>{
+        if(!err){
+            response.json(data)
+        }
+        else{
+            response.json(err)
+        }
+    })
+}
+
+module.exports={signIn,storeUser,getUserDetailsById}

@@ -25,6 +25,7 @@ app.use("/api/emp",routerEmp);
 
 //http://localhost:9090/api/user/userSignIn
 //http://localhost:9090/api/user/createUser
+//http://localhost:9090/api/user/getUserDetailsById
 app.use("/api/user",routerUser);
 
 //http://localhost:9090/api/order/getAllOrdersById

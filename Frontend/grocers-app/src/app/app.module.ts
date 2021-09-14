@@ -8,13 +8,15 @@ import { EmployeeLoginComponent } from './employee-login/employee-login.componen
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ChangePassComponent } from './change-pass/change-pass.component';
+import { UserDashComponent } from './user-dash/user-dash.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EmployeeDashComponent,
     EmployeeLoginComponent,
-    ChangePassComponent
+    ChangePassComponent,
+    UserDashComponent
   ],
   imports: [
     BrowserModule,
