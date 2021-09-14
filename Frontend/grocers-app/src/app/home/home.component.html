@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+  <script type="text/javascript" src="cart.js"></script>
+  <style>
+
+
+    .mainbody {
+      background-image: url('../../assets/ShopNow-BG.png');
+      background-position: right 0px top -60vh;
+      color: white;
+      min-block-size: 40vh;
+      display: grid;
+      place-content: center;
+      font-size: min(200%, 5vmin);
+      box-sizing: border-box;
+    }
+
+
+    .TextField {
+      background-color: #fff;
+      color: #808080;
+      text-align: center;
+      padding: 30px;
+    }
+
+    h1 {
+      font-size: 9vmin;
+      line-height: 1.1;
+      max-inline-size: 15ch;
+      margin: auto;
+    }
+
+
+    p {
+      margin: auto;
+    }
+
+    html {
+      block-size: 100%;
+      inline-size: 100%;
+      text-align: center;
+    }
+
+    .wrapper .bg-image {
+      padding: 0px;
+      margin-top: 0px;
+      background-image: url('../../assets/ShopNow-BG2.png');
+      background-color: #343a40;
+      flex: 0 1 auto;
+      vertical-align: middle;
+    }
+
+    .body {
+      background-color: #343a40;
+    }
+    .wrapper {
+      display: flex;
+      margin-top: 0px;
+      margin-bottom: 0px;
+      height: 100vh;
+      flex-wrap: nowrap;
+      flex-direction: column;
+      background-color: #343a40;
+    }
+
+    .form-group-button{
+      padding:15vh;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="wrapper">
+    <div class="mainbody">
+      <h1>Group 20 Grocers</h1>
+      <p class="lead" style="font-size:20px">For all of your daily necessities</p>
+    </div>
+    <div class="TextField">
+      <h1>Products</h1>
+      <p class="lead" style="font-size:20px">We work hard to make sure your purchases are of the highest quality</p>
+    </div>
+
+    <div class="bg-image flex-grow-1 text-center align-middle">
+      <div class="form-group-button">
+        <a routerLink="register">
+          <button type="button" class="btn btn-transparent btn-lg" style="color: white; border-color:white; ">Shop Now</button>
+        </a>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
