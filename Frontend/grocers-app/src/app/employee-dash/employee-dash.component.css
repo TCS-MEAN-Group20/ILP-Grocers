@@ -1,3 +1,11 @@
 h1{
     text-align: center;
 }
+.content{
+    
+    width: 75%;
+    height: auto;
+    margin: 0 auto;
+    padding: 10px;
+    position: relative;
+}

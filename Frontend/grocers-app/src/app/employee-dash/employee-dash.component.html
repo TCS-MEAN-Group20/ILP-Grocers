@@ -1,11 +1,87 @@
-<h1>Welcome Employee with Username {{user}}</h1><br>
+<h1>Welcome Employee with Username {{empUname}}</h1><br>
 <div>
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
         <div class="navbar-nav">
-            <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link" href="#">Features</a>
-            <a class="nav-item nav-link" href="#">Pricing</a>
+            <a class="nav-item nav-link active" href="#"> <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="#"></a>
+            <a class="nav-item nav-link" href="#"></a>
           </div>
       </nav>
+</div>
+<br>
+<div class="row">
+    <div class="col-6 box">
+        <div class="content">
+            <h3>Send Request</h3>
+                <form [formGroup] = "reqRef" (ngSubmit)="sendReq()">
+                    <label class="form-label" >Product</label>
+                    <select class="form-control" formControlName="product" required>
+                        <!--NEED AN NG FOR FOR THE PRODUCTS AVAILABLE THIS IS TEMP-->
+                        <option>Product1</option>
+                        <option>Product2</option>
+                        <option>Product3</option>
+                        <option>Product4</option>
+                    </select><br>
+                    <label class="form-label" >Action</label>
+                    <select class="form-control" formControlName="action" required>
+                        <option>Decrease Product Quantities</option>
+                        <option>Increase Product Quantities</option>
+                    </select><br>
+                    <input class="btn btn-primary" type="submit" value="Send Request"/> &nbsp;&nbsp; 
+                    <input class="btn btn-secondary" type="reset" value="reset"/>
+                </form>
+        </div>
+    </div>
+    <div class="col-6 box">
+        <div class="content">
+            <h3>Update Order Status</h3>
+                <form [formGroup] = "orderRef" (ngSubmit)="updateOrder()">
+                    <label class="form-label" >Order</label>
+                    <select class="form-control" formControlName="order" required>
+                        <!--NEED AN NG FOR FOR THE ORDERS AVAILABLE THIS IS TEMP-->
+                        <option>Order1</option>
+                        <option>Order2</option>
+                        <option>Order3</option>
+                        <option>Order4</option>
+                    </select><br>
+                    <label class="form-label" >New Status</label>
+                    <select class="form-control" formControlName="status" required>
+                        <option>Shipped</option>
+                        <option>Out for Delivery</option>
+                        <option>Deliverd</option>
+                        <option>Canceled</option>
+                    </select><br>
+                    <input class="btn btn-primary" type="submit" value="Update Order"/> &nbsp;&nbsp; 
+                    <input class="btn btn-secondary" type="reset" value="reset"/>
+                </form>
+        </div>
+    </div>
+</div><br><br><br><br>
+<div class="row">
+    <div class="col-6 box">
+        <div class="content">
+            <h3>Unblock Users</h3>
+                <form [formGroup] = "blockedRef" (ngSubmit)="unblockUser()">
+                    <label class="form-label" >User</label>
+                    <select class="form-control" formControlName="user" required>
+                        <!--NEED AN NG FOR FOR THE ORDERS AVAILABLE THIS IS TEMP-->
+                        <option>Blocked User 1</option>
+                        <option>Blocked User 2</option>
+                        <option>Blocked User 3</option>
+                        <option>Blocked User 4</option>
+                    </select><br>
+                    <input class="btn btn-primary" type="submit" value="Unblock User"/> &nbsp;&nbsp; 
+                    <input class="btn btn-secondary" type="reset" value="reset"/>
+                </form>
+        </div>
+    </div>
+    <div class="col-6 box">
+        <div class="content">
+            <h3>Edit Profile</h3>
+            <form [formGroup] = "changeRef" (ngSubmit)="changePassword()">
+                <input class="btn btn-primary" type="submit" value="Change Password">
+            </form>
+        </div>
+    </div>
 </div>
 
