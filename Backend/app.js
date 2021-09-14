@@ -5,6 +5,7 @@ let cors = require("cors");
 let routerEmp = require("./router/Employee.router");
 let routerUser = require("./router/User.router")
 let routerOrder = require("./router/Order.router")
+let adminRouter = require("./router/admin.router")
 
 let app = express();
 
@@ -31,5 +32,7 @@ app.use("/api/user",routerUser);
 //http://localhost:9090/api/order/getAllOrdersById
 //http://localhost:9090/api/order/addOrder
 app.use("/api/order",routerOrder);
+
+app.use("/api/admin",adminRouter);
 
 app.listen(9090,()=>console.log("Server running on port number 9090"))

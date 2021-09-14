@@ -1,0 +1,13 @@
+<h2>Admin Log In</h2>
+<div>
+    <form ngNativeValidate [formGroup]="loginRef" (ngSubmit)="checkAdmin()">
+        <label>Username</label>
+        <input type="text" required formControlName="username"/><br/>
+        <label >Password</label>
+        <input type="password" required formControlName="password"/><br/>
+        <input type="submit" value="Sign In">
+        <input type="reset" value="Reset">
+    </form>
+    <br/>
+    {{msg}}
+</div>
