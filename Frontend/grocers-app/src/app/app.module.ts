@@ -10,13 +10,18 @@ import { HttpClientModule } from '@angular/common/http';
 import { ChangePassComponent } from './change-pass/change-pass.component';
 import { UserDashComponent } from './user-dash/user-dash.component';
 
+import { HomeComponent } from './home/home.component';
+import { UsersMainComponent } from './users-main/users-main.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     EmployeeDashComponent,
     EmployeeLoginComponent,
     ChangePassComponent,
-    UserDashComponent
+    UserDashComponent,
+    HomeComponent,
+    UsersMainComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,69 @@
+
+.mainbody {
+    background-image: url('../../assets/eatFresh.png');
+    background-position: right 0px top -60vh;
+    color: white;
+    min-block-size: 59vh;
+    display: grid;
+    place-content: center;
+    font-size: min(200%, 5vmin);
+    box-sizing: border-box;
+    font-family: Allison;
+}
+
+
+.TextField {
+    background-color: #fff;
+    color: black;
+    text-align: center;
+    padding: 30px;
+    font-family: Inconsolata;
+}
+
+h1 {
+    font-size: 9vmin;
+    line-height: 1.1;
+    max-inline-size: 15ch;
+    margin: auto;
+}
+
+
+p {
+    margin: auto;
+}
+
+html {
+    block-size: 100%;
+    inline-size: 100%;
+    text-align: center;
+}
+
+.wrapper .bg-image {
+    background-position: right -30vh top -60vh;
+    padding: 0px;
+    margin-top: 0px;
+    background-image: url('../../assets/ShopNow-BG2.png');
+    background-color: #343a40;
+    flex: 0 1 auto;
+    vertical-align: middle;
+}
+
+.body {
+    background-color: #343a40;
+}
+
+.wrapper {
+    display: flex;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    height: 100vh;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    background-color: #343a40;
+}
+
+.form-group-button {
+    padding: 12vh;
+    font-family: Allison;
+    font-size: 40px;
+}
