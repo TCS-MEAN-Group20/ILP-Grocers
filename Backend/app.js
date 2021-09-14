@@ -3,6 +3,8 @@ let bodyParser = require("body-parser");
 let mongoose = require("mongoose");
 let cors = require("cors");
 let routerEmp = require("./router/Employee.router");
+let routerUser = require("./router/User.router")
+let routerOrder = require("./router/Order.router")
 
 let app = express();
 
@@ -20,5 +22,13 @@ catch(error=>console.log(error))
 //http://localhost:9090/api/emp/storeEmp
 //http://localhost:9090/api/emp/changePassword
 app.use("/api/emp",routerEmp);
+
+//http://localhost:9090/api/user/userSignIn
+//http://localhost:9090/api/user/createUser
+app.use("/api/user",routerUser);
+
+//http://localhost:9090/api/order/getAllOrdersById
+//http://localhost:9090/api/order/addOrder
+app.use("/api/order",routerOrder);
 
 app.listen(9090,()=>console.log("Server running on port number 9090"))
