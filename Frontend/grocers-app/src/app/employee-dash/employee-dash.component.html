@@ -16,16 +16,22 @@
                 <form [formGroup] = "reqRef" (ngSubmit)="sendReq()">
                     <label class="form-label" >Product</label>
                     <select class="form-control" formControlName="product" required>
-                        <!--NEED AN NG FOR FOR THE PRODUCTS AVAILABLE THIS IS TEMP-->
                         <option>Product1</option>
                         <option>Product2</option>
                         <option>Product3</option>
                         <option>Product4</option>
-                    </select><br>
+                    </select>
+                    <!-- NEED AN NG FOR FOR THE PRODUCTS AVAILABLE THIS IS TEMP
+                    <select class="form-control" formControlName="product" required>
+                        <option *ngFor="let product of productArray">{{product._id}}</option>
+                    </select> -->
+                    <br>
                     <label class="form-label" >Action</label>
                     <select class="form-control" formControlName="action" required>
-                        <option>Decrease Product Quantities</option>
-                        <option>Increase Product Quantities</option>
+                        <option>Increase Stock</option>
+                        <option>Decrease Stock</option>
+                        <option>Update Info</option>
+                        <option>Delete Product</option>
                     </select><br>
                     <input class="btn btn-primary" type="submit" value="Send Request"/> &nbsp;&nbsp; 
                     <input class="btn btn-secondary" type="reset" value="reset"/>
@@ -70,6 +76,25 @@
                     <input class="btn btn-primary" type="submit" value="Unblock User"/> &nbsp;&nbsp; 
                     <input class="btn btn-secondary" type="reset" value="reset"/>
                 </form>
+                <!-- 
+                <table border="1">
+                    <tr>
+                        <th>Customer Id</th>
+                        <th>Customer Name</th>
+                        <th>Customer Age</th>
+                        <th>Delete</th>
+                        <th>Update</th>
+                    </tr>
+                    <tr *ngFor="let customer of customers">
+                        <td>{{customer.cid}}</td>
+                        <td>{{customer.cname}}</td>
+                        <td>{{customer.age}}</td>
+                    <td><input type="button" value="Delete" (click)="deleteRec(customer.cid)"/></td>
+                    <td><input type="button" value="Update" (click)="updateAge(customer.cid,customer.age)"/></td> 
+                    </tr>
+                </table>
+                
+                -->
         </div>
     </div>
     <div class="col-6 box">

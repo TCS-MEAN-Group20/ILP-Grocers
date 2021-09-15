@@ -6,6 +6,8 @@ let routerEmp = require("./router/Employee.router");
 let routerUser = require("./router/User.router")
 let routerOrder = require("./router/Order.router")
 let adminRouter = require("./router/admin.router")
+let routerReq = require("./router/Request.router")
+
 
 let app = express();
 
@@ -23,6 +25,9 @@ catch(error=>console.log(error))
 //http://localhost:9090/api/emp/storeEmp
 //http://localhost:9090/api/emp/changePassword
 app.use("/api/emp",routerEmp);
+
+//http://localhost:9090/api/req/addRequest
+app.use("/api/req",routerReq);
 
 //http://localhost:9090/api/user/userSignIn
 //http://localhost:9090/api/user/createUser

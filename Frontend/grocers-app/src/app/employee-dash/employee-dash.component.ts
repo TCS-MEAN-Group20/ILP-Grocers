@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EmployeeService } from '../employee.service';
+import { RequestService } from '../request.service';
+// import { ProductService } from '../product.service';
 
 
 @Component({
@@ -30,11 +32,14 @@ export class EmployeeDashComponent implements OnInit {
   msg?:string
   empUname?:string
   orderArray?:Array<any>
+  productArray?:Array<any>
 
   constructor(
     public activateRoute:ActivatedRoute,
     public router:Router,
-    public empService:EmployeeService
+    public empService:EmployeeService,
+    public reqService:RequestService
+    //public prodService:ProductService
   ) { }
 
   ngOnInit(): void {
@@ -43,12 +48,23 @@ export class EmployeeDashComponent implements OnInit {
       result=>{this.orderArray = result},
       error=>console.log(error)
     );
+    // TODO: Add product service
+    // this.prodService.getAllProducts().subscribe(
+    //   result=>{this.productArray = result},
+    //   error=>console.log(error)
+    // );
     console.log(this.orderArray);
   }
 
   sendReq(){
     let request = this.reqRef.value
     console.log(request)
+
+    let temp = {productName:request.product, action:request.action}
+    this.reqService.addRequest(temp).subscribe(
+      result=>console.log(result),
+      error=>console.log(error)
+    );
 
     this.reqRef.reset()
   }
