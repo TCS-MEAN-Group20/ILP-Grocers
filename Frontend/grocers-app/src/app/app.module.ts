@@ -21,6 +21,7 @@ import { UserDashComponent } from './user-dash/user-dash.component';
 
 import { HomeComponent } from './home/home.component';
 import { UsersMainComponent } from './users-main/users-main.component';
+import { UserEditProfileComponent } from './user-edit-profile/user-edit-profile.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { UsersMainComponent } from './users-main/users-main.component';
     ChangePassComponent,
     UserDashComponent,
     HomeComponent,
-    UsersMainComponent
+    UsersMainComponent,
+    UserEditProfileComponent
   ],
   imports: [
     BrowserModule,

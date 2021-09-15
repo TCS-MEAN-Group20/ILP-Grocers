@@ -15,4 +15,7 @@ export class UserService {
   getUserDetailsById(user:any):Observable<any>{
     return this.http.post("http://localhost:9090/api/user/getUserDetailsById",user);
   }
+  updateUserDetails(user:any):Observable<any>{
+    return this.http.put("http://localhost:9090/api/user/updateUserFunds",user);
+  }
 }

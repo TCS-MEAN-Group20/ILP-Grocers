@@ -36,4 +36,24 @@ let getUserDetailsById = (request,response)=>{
     })
 }
 
-module.exports={signIn,storeUser,getUserDetailsById}
+let updateUserDetails = (request,response)=>{
+    let user = request.body;
+    userModel.updateOne({uname:user.uname},{$set:
+        {
+            funds:user.funds, 
+            fname:user.fname,
+            lname:user.lname,
+            address:user.address,
+            phone:user.phone,
+            password:user.password,
+        }}, (err,result)=>{
+        if(!err){
+            response.send(result)
+        }
+        else{
+            response.send(err)
+        }
+    })
+}
+
+module.exports={signIn,storeUser,getUserDetailsById,updateUserDetails}

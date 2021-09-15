@@ -1,0 +1,42 @@
+<h1 style="text-align: center;">Edit Profile</h1><br>
+<div>
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #0275d8;">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="#"> <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="#"></a>
+            <a class="nav-item nav-link" href="#"></a>
+          </div>
+      </nav>
+</div>
+<div class="row">
+    <div class="col-6">
+        <div class="content">
+            <h3>Current Profile Settings</h3>
+            <p>First Name: {{fname}}</p>
+            <p>Last Name: {{lname}}</p>
+            <p>Phone Number: {{phone}}</p>
+            <p>Address: {{address}}</p>
+            <p>Password: {{password}}</p>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="content">
+            <h3>Update Settings</h3>
+            <p>If you want to update a field enter something in the text field. If not simply leave it blank.</p>
+            <form [formGroup] = "profileRef" (ngSubmit)="editUser()">
+                <label class="form-label" >First Name</label>
+                <input class="form-control" type="text" formControlName="fname"/><br/>
+                <label class="form-label" >Last Name</label>
+                <input class="form-control" type="text" formControlName="lname"/><br/>
+                <label class="form-label" >Phone Number</label>
+                <input class="form-control" type="text" formControlName="phone"/><br/>
+                <label class="form-label" >Address</label>
+                <input class="form-control" type="text" formControlName="address"/><br/>
+                <label class="form-label" >Password</label>
+                <input class="form-control" type="text" formControlName="password"/><br/>
+                <input class="btn btn-primary" type="submit" value="Update Profile"/> &nbsp;&nbsp; 
+                <input class="btn btn-secondary" type="reset" value="reset"/>
+            </form>
+        </div>
+    </div>
+</div>

@@ -37,7 +37,33 @@ export class UserDashComponent implements OnInit {
       
     },
     error=>console.log(error));
-
   }
+
+  fundsRef = new FormGroup({
+    amount: new FormControl()
+  })
+
+  changeRef = new FormGroup({});
+
+  addFunds(){
+    let fundsToAdd = this.fundsRef.value
+    fundsToAdd.amount = parseFloat(fundsToAdd.amount)
+    //console.log(fundsToAdd);
+    this.userJson.funds = this.userJson.funds + fundsToAdd.amount;
+
+
+    this.userSur.updateUserDetails(this.userJson).
+    subscribe(result=>{
+      this.funds = this.userJson.funds;
+    },
+    error=>console.log(error))
+
+    this.fundsRef.reset();
+  }
+
+  changeRoute(){
+    this.router.navigate(["editUserProfile",this.userJson.uname])
+  }
+
 
 }

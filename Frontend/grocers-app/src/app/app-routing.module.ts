@@ -16,6 +16,7 @@ import { ViewrequestsComponent } from './viewrequests/viewrequests.component';
 
 import { HomeComponent } from './home/home.component';
 import { UsersMainComponent } from './users-main/users-main.component';
+import { UserEditProfileComponent } from './user-edit-profile/user-edit-profile.component';
 
 
 const routes: Routes = [
@@ -34,7 +35,8 @@ const routes: Routes = [
   {path:"adminHome/addEmployee",component:AddemployeeComponent},
   {path:"adminHome/deleteEmployee",component:DeleteemployeeComponent},
   {path:"adminHome/viewRequests",component:ViewrequestsComponent},
-  {path:"adminHome/generateReports",component:GeneratereportsComponent}
+  {path:"adminHome/generateReports",component:GeneratereportsComponent},
+  {path:"editUserProfile/:user",component:UserEditProfileComponent}
 ];
 
 @NgModule({
