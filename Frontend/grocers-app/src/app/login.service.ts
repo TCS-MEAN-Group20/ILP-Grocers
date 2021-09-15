@@ -20,4 +20,8 @@ export class LoginService {
   delEmployeeService(login:Login,uname:any):Observable<any>{
     return this.http.delete("http://localhost:9090/api/emp/deleteEmp/" + uname, login)
   }
+
+  getRequests(login:Login,uname:any):Observable<any>{
+    return this.http.delete("http://localhost:9090/api/emp/getRequests" + uname, login)
+  }
 }

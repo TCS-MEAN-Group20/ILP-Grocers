@@ -6,6 +6,7 @@ let routerEmp = require("./router/Employee.router");
 let routerUser = require("./router/User.router")
 let routerOrder = require("./router/Order.router")
 let adminRouter = require("./router/admin.router")
+let requestRouter = require("./router/Request.router")
 
 let app = express();
 
@@ -35,5 +36,8 @@ app.use("/api/order",routerOrder);
 
 //"http://localhost:9090/api/admin/signIn"
 app.use("/api/admin",adminRouter);
+
+//"http://localhost:9090/api/admin/getRequest"
+app.use("/api/admin",requestRouter);
 
 app.listen(9090,()=>console.log("Server running on port number 9090"))
