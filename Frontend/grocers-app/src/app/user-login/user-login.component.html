@@ -1,0 +1,17 @@
+<h1 style="text-align: center;">User Login Page</h1>
+<div class = "container"><br>
+    <form [formGroup] = "userRef" (ngSubmit)="checkUser()">
+        <label class="form-label" >Username</label>
+        <input class="form-control" type="text" formControlName="uname"/><br/>
+        <label class="form-label" >Password</label>
+        <input class="form-control" type="password" formControlName="password"/><br/>
+        <input class="btn btn-primary" type="submit" value="Sign In"/> &nbsp;&nbsp; 
+        <input class="btn btn-secondary" type="reset" value="reset"/>
+    </form><br>
+    <a routerLink="">
+        <button class="btn btn-secondary">Sign Up</button>
+    </a>
+    <br/>
+    <br/>
+    <span style="color: red;">{{msg}}</span>
+</div>

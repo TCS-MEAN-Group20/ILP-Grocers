@@ -18,4 +18,8 @@ export class UserService {
   updateUserDetails(user:any):Observable<any>{
     return this.http.put("http://localhost:9090/api/user/updateUserFunds",user);
   }
+  signInUser(user:any):Observable<any>{
+    return this.http.post("http://localhost:9090/api/user/userSignIn",user,
+    {responseType:'text'});
+  }
 }

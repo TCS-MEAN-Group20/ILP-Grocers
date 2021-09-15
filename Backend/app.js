@@ -6,6 +6,7 @@ let routerEmp = require("./router/Employee.router");
 let routerUser = require("./router/User.router")
 let routerOrder = require("./router/Order.router")
 let adminRouter = require("./router/admin.router")
+let routerCart = require("./router/Cart.router")
 
 let app = express();
 
@@ -35,5 +36,10 @@ app.use("/api/user",routerUser);
 app.use("/api/order",routerOrder);
 
 app.use("/api/admin",adminRouter);
+
+//http://localhost:9090/api/cart/addCartUponNewUser
+//http://localhost:9090/api/cart/updateCartOnItem
+//http://localhost:9090/api/cart/getCartDetails
+app.use("/api/cart",routerCart);
 
 app.listen(9090,()=>console.log("Server running on port number 9090"))
