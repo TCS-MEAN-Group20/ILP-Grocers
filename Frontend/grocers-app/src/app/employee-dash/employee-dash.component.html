@@ -1,4 +1,4 @@
-<h1>Welcome Employee with Username {{empUname}}</h1><br>
+<h1>Welcome Employee, {{empUname}}!</h1><br>
 <div>
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
         <div class="navbar-nav">
@@ -38,12 +38,9 @@
                 <form [formGroup] = "orderRef" (ngSubmit)="updateOrder()">
                     <label class="form-label" >Order</label>
                     <select class="form-control" formControlName="order" required>
-                        <!--NEED AN NG FOR FOR THE ORDERS AVAILABLE THIS IS TEMP-->
-                        <option>Order1</option>
-                        <option>Order2</option>
-                        <option>Order3</option>
-                        <option>Order4</option>
-                    </select><br>
+                        <option *ngFor="let order of orderArray">{{order._id}}</option>
+                    </select>
+                    <br>
                     <label class="form-label" >New Status</label>
                     <select class="form-control" formControlName="status" required>
                         <option>Shipped</option>
@@ -81,6 +78,11 @@
             <form [formGroup] = "changeRef" (ngSubmit)="changePassword()">
                 <input class="btn btn-primary" type="submit" value="Change Password">
             </form>
+            <br>
+            <h3>Logout</h3>
+            <a routerLink="/app-users-main">
+                <button type="submit" class="btn btn-danger">Log Out</button>
+            </a>
         </div>
     </div>
 </div>

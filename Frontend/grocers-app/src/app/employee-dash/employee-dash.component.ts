@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { EmployeeService } from '../employee.service';
+
 
 @Component({
   selector: 'app-employee-dash',
@@ -27,13 +29,21 @@ export class EmployeeDashComponent implements OnInit {
 
   msg?:string
   empUname?:string
+  orderArray?:Array<any>
+
   constructor(
     public activateRoute:ActivatedRoute,
-    public router:Router
+    public router:Router,
+    public empService:EmployeeService
   ) { }
 
   ngOnInit(): void {
     this.activateRoute.params.subscribe(data=>this.empUname=data.user);
+    this.empService.getAllOrders().subscribe(
+      result=>{this.orderArray = result},
+      error=>console.log(error)
+    );
+    console.log(this.orderArray);
   }
 
   sendReq(){
@@ -44,10 +54,15 @@ export class EmployeeDashComponent implements OnInit {
   }
 
   updateOrder(){
-    let order = this.orderRef.value
-    console.log(order)
+    let orderObj = this.orderRef.value
+    console.log(orderObj)
 
-    this.orderRef.reset()
+    let temp = {order:orderObj.order, status:orderObj.status}
+    this.empService.updateOrderStatus(temp).subscribe(
+      result=>console.log(result),
+      error=>console.log(error)
+    );
+    this.orderRef.reset();
   }
 
   unblockUser(){

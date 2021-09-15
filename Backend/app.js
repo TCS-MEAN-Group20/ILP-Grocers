@@ -29,8 +29,10 @@ app.use("/api/emp",routerEmp);
 //http://localhost:9090/api/user/getUserDetailsById
 app.use("/api/user",routerUser);
 
+//http://localhost:9090/api/order/getAllOrders
 //http://localhost:9090/api/order/getAllOrdersById
 //http://localhost:9090/api/order/addOrder
+//http://localhost:9090/api/order/updateOrderStatus
 app.use("/api/order",routerOrder);
 
 app.use("/api/admin",adminRouter);
