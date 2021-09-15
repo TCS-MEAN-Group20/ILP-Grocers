@@ -21,7 +21,6 @@ export class LoginComponent implements OnInit {
 
   checkAdmin():void{
     let login = this.loginRef.value;
-    console.log("here!");
     this.loginSer.checkLoginDetails(login).
     subscribe(result=>{
       if(result =="Success")

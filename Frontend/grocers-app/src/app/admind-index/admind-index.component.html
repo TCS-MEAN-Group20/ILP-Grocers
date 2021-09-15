@@ -1,13 +1,111 @@
-<div>
-    <h2>Product Actions</h2>
-        <a routerLink="addProducts">Add Products</a> | <a routerLink="deleteProducts">Delete Products</a> | <a routerLink="updateProducts">Update Products </a> 
-    <hr>
-    <h2>Employee Actions</h2>
-        <a routerLink="addEmployee">Add Employee </a> | <a routerLink="deleteEmployee">Delete Employee </a>
-    <hr>
-    <h2>Other</h2>
-        <a routerLink="viewRequests">View Requests </a> | <a routerLink="generateReports">Generate Reports </a>
-    <hr>
-    <input type="button" value="Logout" (click)="logOut()">
-    <router-outlet></router-outlet>
+<!-- TODO: Double check fields for products and users -->
+<div class="container">
+    <div class="row">
+      <div class="col">
+      </div>
+      <div class="col">
+        <h1>Admin Panel</h1>
+      </div>
+      <div class="col">
+      </div>
+    </div>
+  </div>
+  <hr>
+<div class="container">
+    <div class="row">
+      <div class="col">
+        <h2>Add Products</h2>
+        <form  (ngSubmit) ="addProduct()" ngNativeValidate>
+            <label>Product Name: </label>
+            <input type="text" required formControlName="productName"/><br/>
+            <label>Price: </label>
+            <input type="text" required formControlName="productPrice"/><br/>
+            <label>Quantity: </label>
+            <input type="text" required formControlName="productQuantity"/><br/>
+            <label>Image Url: </label>
+            <input type="text" required formControlName="productImg"/><br/>
+    
+            <input type="submit" value="Add Product">
+            <input type="reset" value="Reset">
+        </form>
+      </div>
+      <div class="col">
+        <h2>Delete Products</h2>
+        <form ngNativeValidate>
+            <label>Product Name: </label>
+            <input type="text" required formControlName="productName"/><br/>
+            <label>Quantity: </label>
+            <input type="text" required formControlName="productQuantity"/><br/>
+            <input type="submit" value="Delete Product">
+            <input type="reset" value="Reset">
+        </form>
+      </div>
+      <div class="col">
+        <h2>Update Products</h2>
+        <form ngNativeValidate>
+            <label>Product Name: </label>
+            <input type="text" required formControlName="productName"/><br/>
+            <label>Price: </label>
+            <input type="text" required formControlName="productPrice"/><br/>
+            <label>Quantity: </label>
+            <input type="text" required formControlName="productQuantity"/><br/>
+            <label>Image Url: </label>
+            <input type="text" required formControlName="productImg"/><br/>
+            <input type="submit" value="Update Product">
+            <input type="reset" value="Reset">
+        </form>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h2>Add Employee </h2>
+        <form [formGroup] = "addEmpRef" (ngSubmit) ="addEmployee()" ngNativeValidate>
+            <label>First Name: </label>
+            <input type="text" required formControlName="fname"/><br/>
+            <label>Last Name: </label>
+            <input type="text" required formControlName="lname"/><br/>
+            <label>Username: </label>
+            <input type="text" required formControlName="uname"/><br/>
+            <label>Password: </label>
+            <input type="text" required formControlName="password"/><br/>
+            <input type="submit" value="Add Employee">
+            <input type="reset" value="Reset"><br>
+            {{empMsg}}
+        </form>
+      </div>
+      <div class="col">
+        <h2>Delete Employee</h2>
+        <form [formGroup] = "delEmpRef" (ngSubmit) ="delEmployee()" ngNativeValidate>
+            <label>Employee Username: </label>
+            <input type="text" required formControlName="uname"/><br/>
+            <input type="submit" value="Delete Employee">
+            <input type="reset" value="Reset"><br>
+        </form>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h2>View Requests</h2>
+        <input type="submit" value="View Requests">
+      </div>
+      <div class="col">
+        <h2>Generate Reports</h2>
+        <input type="submit" value="Generate Reports">
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h2>Sign out</h2>
+        <input type="submit" value="Signout" (click)='logOut()'>
+      </div>
+    </div>
   </div>
