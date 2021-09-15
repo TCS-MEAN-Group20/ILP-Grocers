@@ -21,7 +21,7 @@ export class LoginService {
     return this.http.delete("http://localhost:9090/api/emp/deleteEmp/" + uname, login)
   }
 
-  getRequests(login:Login,uname:any):Observable<any>{
-    return this.http.delete("http://localhost:9090/api/emp/getRequests" + uname, login)
+  getRequests():Observable<any>{
+    return this.http.post("http://localhost:9090/api/admin/getRequests","temp")
   }
 }

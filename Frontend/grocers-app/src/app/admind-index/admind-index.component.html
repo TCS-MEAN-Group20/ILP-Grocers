@@ -15,7 +15,7 @@
     <div class="row">
       <div class="col">
         <h2>Add Products</h2>
-        <form  (ngSubmit) ="addProduct()" ngNativeValidate>
+        <form [formGroup] = "addProdRef" (ngSubmit) ="addProduct()" ngNativeValidate>
             <label>Product Name: </label>
             <input type="text" required formControlName="productName"/><br/>
             <label>Price: </label>
@@ -31,7 +31,7 @@
       </div>
       <div class="col">
         <h2>Delete Products</h2>
-        <form ngNativeValidate>
+        <form [formGroup] = "delProdRef" (ngSubmit)="deleteProduct()" ngNativeValidate>
             <label>Product Name: </label>
             <input type="text" required formControlName="productName"/><br/>
             <label>Quantity: </label>
@@ -42,7 +42,7 @@
       </div>
       <div class="col">
         <h2>Update Products</h2>
-        <form ngNativeValidate>
+        <form [formGroup] = "upProdRef" (ngSubmit)="updateProducts()"ngNativeValidate>
             <label>Product Name: </label>
             <input type="text" required formControlName="productName"/><br/>
             <label>Price: </label>
@@ -92,7 +92,23 @@
     <div class="row">
       <div class="col">
         <h2>View Requests</h2>
-        <input type="submit" value="View Requests">
+        <input type="submit" value="View/Update Requests" (click)="viewReqs()">
+        <div>
+          <table class="table">
+            <thead class="thead-light">
+              <tr>
+                <th>Product Name</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let req of reqsArray">
+                <td>{{req.productName}}</td> 
+                <td>{{req.action}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
       <div class="col">
         <h2>Generate Reports</h2>
