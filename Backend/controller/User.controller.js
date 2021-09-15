@@ -1,4 +1,5 @@
 let userModel = require("../model/User.model")
+let TicketModel = require('../model/Ticket.model.js');
 
 let signIn = async (request,response)=>{
     let user = request.body;
@@ -36,4 +37,24 @@ let getUserDetailsById = (request,response)=>{
     })
 }
 
-module.exports={signIn,storeUser,getUserDetailsById}
+let raiseTicket = (req, res) => {
+    let ticket = new TicketModel({
+      _id: req.body.uname,
+      reason: req.body.reason,
+    });
+  
+    ticket.save((err, result) => {
+      if (!err) {
+        res.send('Ticket raised successfully');
+      } else {
+        res.send('Error with Ticket ' + err);
+      }
+    });
+  };
+
+module.exports={
+    signIn,
+    storeUser,
+    getUserDetailsById,
+    raiseTicket
+}
