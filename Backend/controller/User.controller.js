@@ -3,13 +3,21 @@ let userModel = require("../model/User.model")
 let signIn = async (request,response)=>{
     let user = request.body;
     //console.log(emp);
+    let userFound = await userModel.findOne({uname:user.uname});
     let userInfo = await userModel.findOne({uname:user.uname, password:user.password});
-    if(userInfo != null){
-        response.send("success")
+    if(userFound != null){
+        if(userInfo != null){
+            response.send("success")
+        }
+        else{
+            response.send("Invalid Username or Password")
+        }
     }
     else{
-        response.send("Invalid Username or Password")
+        response.send("Username not Found")
     }
+    
+    
 }
 
 let storeUser = (request,response)=>{

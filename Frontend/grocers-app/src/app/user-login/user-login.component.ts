@@ -35,7 +35,14 @@ export class UserLoginComponent implements OnInit {
         console.log("success");
       }
       else{
-        this.msg = result;
+        if(result == "Username not Found"){
+          ////////////USERNAME NOT FOUND
+          this.msg = result;
+        }
+        else{
+          /////////////////USERNAME FOUND NEED TO ADD ONE ATTEMPT TO USER
+          this.msg = result;
+        }
       }
     })
 
