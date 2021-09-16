@@ -1,4 +1,4 @@
-<h1 style="text-align: center;">Checkout for user {{userUname}}</h1><br>
+<h1 style="text-align: center;">Checkout for {{userUname}}</h1><br>
 <div>
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #0275d8;">
         <div class="navbar-nav">
@@ -7,4 +7,25 @@
             <a class="nav-item nav-link" href="#"></a>
           </div>
       </nav>
+</div>
+<div class = "content">
+    <table class="table">
+        <tr>
+            <th>Product Name</th>
+            <th>Price</th>
+            <th></th>
+        </tr>
+        <tr *ngFor="let p of products">
+            <td>{{p.name}}</td>
+            <td>{{p.price}}</td>
+            <td><a href="">Remove Item</a></td>
+        </tr>
+    </table>
+    <br><br>
+    <p>Total Price: {{totalPrice}}</p>
+    <br><br>
+    <form [formGroup] = "dummyRef" (ngSubmit)="checkOut()">
+        <input class="btn btn-primary" type="submit" value="Checkout!">
+    </form>
+    <span style="color: red;">{{badMsg}}</span>
 </div>

@@ -19,6 +19,7 @@ import { UserDashComponent } from './user-dash/user-dash.component';
 import { UserEditProfileComponent } from './user-edit-profile/user-edit-profile.component';
 import { CheckoutPageComponent } from './checkout-page/checkout-page.component';
 import { UserLoginComponent } from './user-login/user-login.component';
+import { PurchaseComponent } from './purchase/purchase.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { UserLoginComponent } from './user-login/user-login.component';
     UsersMainComponent,
     UserEditProfileComponent,
     CheckoutPageComponent,
-    UserLoginComponent
+    UserLoginComponent,
+    PurchaseComponent
   ],
   imports: [
     BrowserModule,
