@@ -5,28 +5,19 @@
     min-block-size: 59vh;
     display: grid;
     place-content: center;
-    font-size: min(200%, 5vmin);
-    box-sizing: border-box;
-    font-family: Allison;
-}
-
-
-.TextField {
-    background-color: #fff;
-    color: black;
-    text-align: center;
-    padding: 30px;
-    font-family: Inconsolata;
 }
 
 h1 {
-    font-size: 9vmin;
-    line-height: 1.1;
-    max-inline-size: 15ch;
-    margin: auto;
+  font-size: 30;
+  line-height: 1.1;
+  max-inline-size: 15ch;
+  margin: auto;
+  
 }
 
-
+a {
+  text-decoration: none;
+}
 p {
     margin: auto;
 }
@@ -45,6 +36,7 @@ html {
     background-color: #343a40;
     flex: 0 1 auto;
     vertical-align: middle;
+
 }
 
 .body {
@@ -60,11 +52,7 @@ html {
     flex-wrap: nowrap;
     flex-direction: column;
     background-color: #343a40;
-}
 
-.form-group-button {
-    font-family: Inconsolata;
-    font-size: 40px;
 }
 
 
@@ -78,24 +66,33 @@ html {
     float: none;
 }
 
-.align-items-center {
-    -ms-flex-align: center !important;
-    align-items: center !important;
-}
-
-.d-flex {
-    display: -ms-flexbox !important;
-    display: flex !important;
-}
-
-.col-sm-4 {
-  display: block;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  min-block-size: 100vh;
-  padding-top: 45vh;
+.card {
+  text-decoration: none;
+  text-transform: uppercase;
+  background-color: #fff;
+  color: black;
+  text-align: center;
+  padding: 30px;
+  font-family: Inconsolata;
+  width: 10vw;
   margin: 0 auto;
-  width: 50%;
-  
+  font-size: 10px;
+  -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+  box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+  text-align: center;
 }
+
+.card:hover {
+  background-color: #eee;
+}
+
+  .col-sm-4 {
+    display: block;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    min-block-size: 100vh;
+    padding-top: 45vh;
+    margin: 0 auto;
+    width: 50%;
+  }
