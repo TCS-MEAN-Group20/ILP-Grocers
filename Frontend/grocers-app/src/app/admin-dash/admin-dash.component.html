@@ -1,5 +1,6 @@
 <!-- TODO: Double check fields for products and users -->
-<div class="container">
+<div class="background">
+  <div class="container">
     <div class="row">
       <div class="col">
       </div>
@@ -11,117 +12,129 @@
     </div>
   </div>
   <hr>
-<div class="container">
-    <div class="row">
-      <div class="col">
-        <h2>Add Products</h2>
-        <form [formGroup] = "addProdRef" (ngSubmit) ="addProduct()" ngNativeValidate>
-            <label>Product Name: </label>
-            <input type="text" required formControlName="productName"/><br/>
-            <label>Price: </label>
-            <input type="text" required formControlName="productPrice"/><br/>
-            <label>Quantity: </label>
-            <input type="text" required formControlName="productQuantity"/><br/>
-            <label>Image Url: </label>
-            <input type="text" required formControlName="productImg"/><br/>
-    
-            <input type="submit" value="Add Product">
-            <input type="reset" value="Reset">
-        </form>
-      </div>
-      <div class="col">
-        <h2>Delete Products</h2>
-        <form [formGroup] = "delProdRef" (ngSubmit)="deleteProduct()" ngNativeValidate>
-            <label>Product Name: </label>
-            <input type="text" required formControlName="productName"/><br/>
-            <label>Quantity: </label>
-            <input type="text" required formControlName="productQuantity"/><br/>
-            <input type="submit" value="Delete Product">
-            <input type="reset" value="Reset">
-        </form>
-      </div>
-      <div class="col">
-        <h2>Update Products</h2>
-        <form [formGroup] = "upProdRef" (ngSubmit)="updateProducts()"ngNativeValidate>
-            <label>Product Name: </label>
-            <input type="text" required formControlName="productName"/><br/>
-            <label>Price: </label>
-            <input type="text" required formControlName="productPrice"/><br/>
-            <label>Quantity: </label>
-            <input type="text" required formControlName="productQuantity"/><br/>
-            <label>Image Url: </label>
-            <input type="text" required formControlName="productImg"/><br/>
-            <input type="submit" value="Update Product">
-            <input type="reset" value="Reset">
-        </form>
-      </div>
-    </div>
-  </div>
-  <hr>
   <div class="container">
-    <div class="row">
-      <div class="col">
-        <h2>Add Employee </h2>
-        <form [formGroup] = "addEmpRef" (ngSubmit) ="addEmployee()" ngNativeValidate>
-            <label>First Name: </label>
-            <input type="text" required formControlName="fname"/><br/>
-            <label>Last Name: </label>
-            <input type="text" required formControlName="lname"/><br/>
-            <label>Username: </label>
-            <input type="text" required formControlName="uname"/><br/>
-            <label>Password: </label>
-            <input type="text" required formControlName="password"/><br/>
-            <input type="submit" value="Add Employee">
-            <input type="reset" value="Reset"><br>
-            {{empMsg}}
-        </form>
-      </div>
-      <div class="col">
-        <h2>Delete Employee</h2>
-        <form [formGroup] = "delEmpRef" (ngSubmit) ="delEmployee()" ngNativeValidate>
-            <label>Employee Username: </label>
-            <input type="text" required formControlName="uname"/><br/>
-            <input type="submit" value="Delete Employee">
-            <input type="reset" value="Reset"><br>
-        </form>
-      </div>
-    </div>
-  </div>
-  <hr>
-  <div class="container">
-    <div class="row">
-      <div class="col">
-        <h2>View Requests</h2>
-        <input type="submit" value="View/Update Requests" (click)="viewReqs()">
-        <div>
-          <table class="table">
-            <thead class="thead-light">
-              <tr>
-                <th>Product Name</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let req of reqsArray">
-                <td>{{req.productName}}</td> 
-                <td>{{req.action}}</td>
-              </tr>
-            </tbody>
-          </table>
+    <div class="card">
+      <div class="row">
+        <div class="col">
+          <h2>Add Products</h2>
+          <form [formGroup]="addProdRef" (ngSubmit)="addProduct()" ngNativeValidate>
+            <label>Product Name: </label>
+            <input type="text" required formControlName="productName" /><br />
+            <label>Price: </label>
+            <input type="text" required formControlName="productPrice" /><br />
+            <label>Quantity: </label>
+            <input type="text" required formControlName="productQuantity" /><br />
+            <label>Image Url: </label>
+            <input type="text" required formControlName="productImg" /><br />
+
+            <input class="btn btn-primary" type="submit" value="Add Product">
+            <input class="btn btn-primary" type="reset" value="Reset">
+          </form>
+        </div>
+        <div class="col">
+          <h2>Delete Products</h2>
+          <form [formGroup]="delProdRef" (ngSubmit)="deleteProduct()" ngNativeValidate>
+            <label>Product Name: </label>
+            <input type="text" required formControlName="productName" /><br />
+            <label>Quantity: </label>
+            <input type="text" required formControlName="productQuantity" /><br />
+            <input class="btn btn-primary" type="submit" value="Delete Product">
+            <input class="btn btn-primary" type="reset" value="Reset">
+          </form>
+        </div>
+        <div class="col">
+          <h2>Update Products</h2>
+          <form [formGroup]="upProdRef" (ngSubmit)="updateProducts()" ngNativeValidate>
+            <label>Product Name: </label>
+            <input type="text" required formControlName="productName" /><br />
+            <label>Price: </label>
+            <input type="text" required formControlName="productPrice" /><br />
+            <label>Quantity: </label>
+            <input type="text" required formControlName="productQuantity" /><br />
+            <label>Image Url: </label>
+            <input type="text" required formControlName="productImg" /><br />
+            <input class="btn btn-primary" type="submit" value="Update Product">
+            <input class="btn btn-primary" type="reset" value="Reset">
+          </form>
         </div>
       </div>
-      <div class="col">
-        <h2>Generate Reports</h2>
-        <input type="submit" value="Generate Reports">
-      </div>
+
+
     </div>
+
   </div>
   <hr>
   <div class="container">
-    <div class="row">
-      <div class="col">
-        <h2>Sign out</h2>
-        <input type="submit" value="Signout" (click)='logOut()'>
+    <div class="card">
+      <div class="row">
+        <div class="col">
+          <h2>Add Employee </h2>
+          <form [formGroup]="addEmpRef" (ngSubmit)="addEmployee()" ngNativeValidate>
+            <label>First Name: </label>
+            <input type="text" required formControlName="fname" /><br />
+            <label>Last Name: </label>
+            <input type="text" required formControlName="lname" /><br />
+            <label>Username: </label>
+            <input type="text" required formControlName="uname" /><br />
+            <label>Password: </label>
+            <input type="text" required formControlName="password" /><br />
+            <input class="btn btn-primary" type="submit" value="Add Employee">
+            <input class="btn btn-primary" type="reset" value="Reset"><br>
+            {{empMsg}}
+          </form>
+        </div>
+        <div class="col">
+          <h2>Delete Employee</h2>
+          <form [formGroup]="delEmpRef" (ngSubmit)="delEmployee()" ngNativeValidate>
+            <label>Employee Username: </label>
+            <input type="text" required formControlName="uname" /><br />
+            <input class="btn btn-primary" type="submit" value="Delete Employee">
+            <input class="btn btn-primary" type="reset" value="Reset"><br>
+          </form>
+        </div>
       </div>
     </div>
   </div>
+    <hr>
+    <div class="container">
+      <div class="card">
+        <div class="row">
+          <div class="col">
+            <h2>View Requests</h2>
+            <input class="btn btn-primary" type="submit" value="View/Update Requests" (click)="viewReqs()">
+            <div>
+              <table class="table">
+                <thead class="thead-light">
+                  <tr>
+                    <th>Product Name</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let req of reqsArray">
+                    <td>{{req.productName}}</td>
+                    <td>{{req.action}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="col">
+            <h2>Generate Reports</h2>
+            <input class="btn btn-primary" type="submit" value="Generate Reports">
+          </div>
+        </div>
+      </div>
+      </div>
+      <hr>
+      <div class="container">
+        <div class="card">
+          <div class="row">
+            <div class="col">
+              <h2>Sign out</h2>
+              <input class="btn btn-danger" type="submit" value="Signout" (click)='logOut()'>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
