@@ -57,6 +57,7 @@ app.use("/api/admin",adminRouter);
 app.use("/api/cart",routerCart);
 
 //http://localhost:9090/api/product/addProduct
+//http://localhost:9090/api/product/deleteProduct/:name
 //http://localhost:9090/api/product/updateProduct
 //http://localhost:9090/api/product/getAllProducts
 app.use('/api/product',routerProduct)

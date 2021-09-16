@@ -16,15 +16,8 @@
                 <form [formGroup] = "reqRef" (ngSubmit)="sendReq()">
                     <label class="form-label" >Product</label>
                     <select class="form-control" formControlName="product" required>
-                        <option>Product1</option>
-                        <option>Product2</option>
-                        <option>Product3</option>
-                        <option>Product4</option>
+                        <option *ngFor="let product of productArray">{{product.name}}</option>
                     </select>
-                    <!-- NEED AN NG FOR FOR THE PRODUCTS AVAILABLE THIS IS TEMP
-                    <select class="form-control" formControlName="product" required>
-                        <option *ngFor="let product of productArray">{{product._id}}</option>
-                    </select> -->
                     <br>
                     <label class="form-label" >Action</label>
                     <select class="form-control" formControlName="action" required>

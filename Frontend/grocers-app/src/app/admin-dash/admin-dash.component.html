@@ -17,14 +17,13 @@
         <h2>Add Products</h2>
         <form [formGroup] = "addProdRef" (ngSubmit) ="addProduct()" ngNativeValidate>
             <label>Product Name: </label>
-            <input type="text" required formControlName="productName"/><br/>
+            <input type="text" required formControlName="name"/><br/>
             <label>Price: </label>
-            <input type="text" required formControlName="productPrice"/><br/>
+            <input type="text" required formControlName="price"/><br/>
             <label>Quantity: </label>
-            <input type="text" required formControlName="productQuantity"/><br/>
+            <input type="text" required formControlName="quantity"/><br/>
             <label>Image Url: </label>
-            <input type="text" required formControlName="productImg"/><br/>
-    
+            <input type="text" required formControlName="imgUrl"/><br/>
             <input type="submit" value="Add Product">
             <input type="reset" value="Reset">
         </form>
@@ -33,9 +32,7 @@
         <h2>Delete Products</h2>
         <form [formGroup] = "delProdRef" (ngSubmit)="deleteProduct()" ngNativeValidate>
             <label>Product Name: </label>
-            <input type="text" required formControlName="productName"/><br/>
-            <label>Quantity: </label>
-            <input type="text" required formControlName="productQuantity"/><br/>
+            <input type="text" required formControlName="name"/><br/>
             <input type="submit" value="Delete Product">
             <input type="reset" value="Reset">
         </form>
@@ -44,13 +41,13 @@
         <h2>Update Products</h2>
         <form [formGroup] = "upProdRef" (ngSubmit)="updateProducts()"ngNativeValidate>
             <label>Product Name: </label>
-            <input type="text" required formControlName="productName"/><br/>
+            <input type="text" required formControlName="name"/><br/>
             <label>Price: </label>
-            <input type="text" required formControlName="productPrice"/><br/>
+            <input type="text" required formControlName="price"/><br/>
             <label>Quantity: </label>
-            <input type="text" required formControlName="productQuantity"/><br/>
+            <input type="text" required formControlName="quantity"/><br/>
             <label>Image Url: </label>
-            <input type="text" required formControlName="productImg"/><br/>
+            <input type="text" required formControlName="imgUrl"/><br/>
             <input type="submit" value="Update Product">
             <input type="reset" value="Reset">
         </form>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AdminService } from '../admin.service';
+import { ProductService } from '../product.service';
 
 @Component({
   selector: 'app-admin-dash',
@@ -20,28 +21,27 @@ export class AdminDashComponent implements OnInit {
     uname: new FormControl()
   })
   addProdRef = new FormGroup({
-    productName:new FormControl(),
-    productPrice:new FormControl(),
-    productQuantity:new FormControl(),
-    productImg:new FormControl()
+    name:new FormControl(),
+    price:new FormControl(),
+    quantity:new FormControl(),
+    imgUrl:new FormControl()
   });
 
   upProdRef = new FormGroup({
-    productName:new FormControl(),
-    productPrice:new FormControl(),
-    productQuantity:new FormControl(),
-    productImg:new FormControl()
+    name:new FormControl(),
+    price:new FormControl(),
+    quantity:new FormControl(),
+    imgUrl:new FormControl()
   });
 
   delProdRef = new FormGroup({
-    productName: new FormControl(),
-    productQuantity: new FormControl()
-
+    name: new FormControl()
   });
 
-  constructor(public router:Router, public loginSer:AdminService) { }
+  constructor(public router:Router, public loginSer:AdminService, public prodSer:ProductService) { }
   empMsg?:string;
   delEmpMsg?:string;
+  prodMsg?:string;
   reqTable?:string;
   tableS = `<table><tr> <th>Product Name</th> <th>Action</th></tr>`;
   tableB?:string;
@@ -52,13 +52,20 @@ export class AdminDashComponent implements OnInit {
   ngOnInit(): void {
   }
   addProduct(){
-    console.log("add product");
+    let addInfo = this.addProdRef.value;
+    this.prodSer.addProduct(addInfo).subscribe(result=>this.prodMsg=result,error=>console.log(error));
+    this.addProdRef.reset();
   }
   updateProducts(){
-    console.log("update product");
+    let info = this.upProdRef.value;
+    this.prodSer.updateProduct(info).subscribe(result=>this.prodMsg=result,error=>console.log(error));
+    this.upProdRef.reset();
   }
   deleteProduct(){
     console.log("delete product");
+    let info = this.delProdRef.value;
+    this.prodSer.delProduct(info,info.name).subscribe(result=>this.prodMsg=result,error=>console.log(error));
+    this.delProdRef.reset();
   }
   addEmployee(){
     let addInfo = this.addEmpRef.value;
