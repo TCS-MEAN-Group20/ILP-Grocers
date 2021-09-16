@@ -88,10 +88,12 @@ html {
     display: flex !important;
 }
 
-col-sm-4 {
+.col-sm-4 {
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
   min-block-size: 100vh;
+  padding-top: 45vh;
+  padding-left: 23vh;
 }
