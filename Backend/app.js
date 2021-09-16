@@ -7,7 +7,7 @@ let routerUser = require("./router/User.router")
 let routerOrder = require("./router/Order.router")
 let adminRouter = require("./router/admin.router")
 let routerReq = require("./router/Request.router")
-
+let routerTicket = require("./router/Ticket.router")
 
 let app = express();
 
@@ -28,6 +28,10 @@ app.use("/api/emp",routerEmp);
 
 //http://localhost:9090/api/req/addRequest
 app.use("/api/req",routerReq);
+
+//http://localhost:9090/api/ticket/getTickets
+//http://localhost:9090/api/ticket/unblockUser
+app.use("/api/ticket",routerTicket);
 
 //http://localhost:9090/api/user/userSignIn
 //http://localhost:9090/api/user/createUser

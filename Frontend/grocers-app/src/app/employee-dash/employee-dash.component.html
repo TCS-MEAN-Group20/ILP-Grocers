@@ -64,37 +64,27 @@
     <div class="col-6 box">
         <div class="content">
             <h3>Unblock Users</h3>
-                <form [formGroup] = "blockedRef" (ngSubmit)="unblockUser()">
-                    <label class="form-label" >User</label>
-                    <select class="form-control" formControlName="user" required>
-                        <!--NEED AN NG FOR FOR THE ORDERS AVAILABLE THIS IS TEMP-->
-                        <option>Blocked User 1</option>
-                        <option>Blocked User 2</option>
-                        <option>Blocked User 3</option>
-                        <option>Blocked User 4</option>
-                    </select><br>
-                    <input class="btn btn-primary" type="submit" value="Unblock User"/> &nbsp;&nbsp; 
-                    <input class="btn btn-secondary" type="reset" value="reset"/>
-                </form>
-                <!-- 
-                <table border="1">
-                    <tr>
-                        <th>Customer Id</th>
-                        <th>Customer Name</th>
-                        <th>Customer Age</th>
-                        <th>Delete</th>
-                        <th>Update</th>
-                    </tr>
-                    <tr *ngFor="let customer of customers">
-                        <td>{{customer.cid}}</td>
-                        <td>{{customer.cname}}</td>
-                        <td>{{customer.age}}</td>
-                    <td><input type="button" value="Delete" (click)="deleteRec(customer.cid)"/></td>
-                    <td><input type="button" value="Update" (click)="updateAge(customer.cid,customer.age)"/></td> 
-                    </tr>
+            <input type="submit" value="View Tickets" (click)="viewTickets()"><br>
+            <br>
+            <div>
+                <table class="table">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>User Name</th>
+                            <th>Reason</th>
+                            <th>Unblock</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let t of ticketsArray">
+                            <td>{{t.username}}</td> 
+                            <td>{{t.reason}}</td>
+                            <td><input type="button" value="Unblock" (click)="unblockUser(t.username)"/></td>
+                        </tr>
+                    </tbody>
                 </table>
-                
-                -->
+                {{ticketMsg}}
+            </div>
         </div>
     </div>
     <div class="col-6 box">
