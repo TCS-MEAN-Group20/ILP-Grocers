@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { EmpLoginService } from '../emp-login.service';
+import { EmployeeService } from '../employee.service';
 
 @Component({
   selector: 'app-employee-login',
@@ -16,7 +16,7 @@ export class EmployeeLoginComponent implements OnInit {
   })
   msg?:string
   constructor(
-    public empSur:EmpLoginService,
+    public empService:EmployeeService,
     public router:Router) { }
 
   ngOnInit(): void {
@@ -24,14 +24,12 @@ export class EmployeeLoginComponent implements OnInit {
 
   checkEmp(){
     let login = this.empRef.value
-    console.log(login);
-    this.empSur.checkEmpDetails(login).
+    this.empService.checkEmpDetails(login).
     subscribe(result=>{
       if(result == "success"){
-        console.log(login.password);
+        //console.log(login.password);
         if(login.password == "welcome123"){
-          console.log("hit");
-          
+          //console.log("hit");
           this.router.navigate(["changePassword",login.uname])
         }
         else{

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router,ActivatedRoute } from '@angular/router';
-import { EmpLoginService } from '../emp-login.service';
+import { EmployeeService } from '../employee.service';
 
 
 @Component({
@@ -17,7 +17,7 @@ export class ChangePassComponent implements OnInit {
   msg?:string
   constructor(
     public activateRoute:ActivatedRoute,
-    public empSur:EmpLoginService,
+    public empService:EmployeeService,
     public router:Router) { }
 
   ngOnInit(): void {
@@ -28,7 +28,7 @@ export class ChangePassComponent implements OnInit {
     let login = this.changeRef.value
     let temp = {uname:this.user, password:login.password}
     //console.log(temp);
-    this.empSur.changeEmpPassword(temp).
+    this.empService.changeEmpPassword(temp).
     subscribe(result=>{
       this.msg = result
       if(result == "Password Updated"){

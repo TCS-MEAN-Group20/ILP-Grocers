@@ -31,19 +31,34 @@
     <div class="col-6">
         <div class="content">
             <h3>Edit Profile</h3>
+            <br>
+            <form [formGroup] = "changeRef" (ngSubmit)="changeRoute()">
+                <input class="btn btn-primary" type="submit" value="Edit Profile">
+            </form>
         </div>
     </div>
 </div><br><br><br><br>
 <div class="row">
     <div class="col-6">
         <div class="content">
-            <h3>Current Funds</h3>
-            <p>Current Funds: {{funds}}</p>
+            <h3>Add Funds</h3>
+            <form [formGroup] = "fundsRef" (ngSubmit)="addFunds()">
+                <label class="form-label" >Amount to Add</label>
+                <input class="form-control" type="text" formControlName="amount"/><br>
+                <input class="btn btn-primary" type="submit" value="Add Funds"/> &nbsp;&nbsp; 
+                <input class="btn btn-secondary" type="reset" value="reset"/>
+            </form><br>
+            <p>Current Funds: ${{funds}}</p>
+            
         </div>
     </div>
     <div class="col-6">
         <div class="content">
             <h3>Logout</h3>
+            <br>
+            <a routerLink = "">
+                <button class="btn btn-danger">Logout</button>
+            </a>
         </div>
     </div>
 </div>
