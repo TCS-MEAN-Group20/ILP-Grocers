@@ -12,4 +12,16 @@ export class LoginService {
   checkLoginDetails(login:Login):Observable<any>{
     return this.http.post("http://localhost:9090/api/admin/signIn",login,{responseType:'text'})
   }
+
+  addEmployeeService(login:Login):Observable<any>{
+    return this.http.post("http://localhost:9090/api/emp/storeEmp",login,{responseType:'text'})
+  }
+
+  delEmployeeService(login:Login,uname:any):Observable<any>{
+    return this.http.delete("http://localhost:9090/api/emp/deleteEmp/" + uname, login)
+  }
+
+  getRequests():Observable<any>{
+    return this.http.post("http://localhost:9090/api/req/getRequests","temp")
+  }
 }

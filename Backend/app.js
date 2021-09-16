@@ -21,12 +21,13 @@ catch(error=>console.log(error))
 
 //http://localhost:9090/api/emp/empSignIn
 //http://localhost:9090/api/emp/getAllEmployees
-//http://localhost:9090/api/emp/deleteEmp/:eid
+//http://localhost:9090/api/emp/deleteEmp/:uname
 //http://localhost:9090/api/emp/storeEmp
 //http://localhost:9090/api/emp/changePassword
 app.use("/api/emp",routerEmp);
 
 //http://localhost:9090/api/req/addRequest
+http://localhost:9090/api/req/getRequest
 app.use("/api/req",routerReq);
 
 //http://localhost:9090/api/ticket/getTickets
@@ -44,6 +45,7 @@ app.use("/api/user",routerUser);
 //http://localhost:9090/api/order/updateOrderStatus
 app.use("/api/order",routerOrder);
 
+//"http://localhost:9090/api/admin/signIn"
 app.use("/api/admin",adminRouter);
 
 app.listen(9090,()=>console.log("Server running on port number 9090"))

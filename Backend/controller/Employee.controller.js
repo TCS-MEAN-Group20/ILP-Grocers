@@ -43,8 +43,8 @@ let storeEmployee = (request,response) =>{
 
 //delete emp from database to be called by ADMIN
 let deleteEmployee = (request,response)=>{
-    let eid = request.params.eid;
-    empModel.deleteOne({_id:eid},(err,result)=>{
+    let reqUname = request.params.uname;
+    empModel.deleteOne({uname:reqUname},(err,result)=>{
         if(!err){
             response.send(result)
         }else {

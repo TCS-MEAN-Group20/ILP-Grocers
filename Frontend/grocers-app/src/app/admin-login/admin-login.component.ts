@@ -4,24 +4,25 @@ import { LoginService } from '../login.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-admin-login',
+  templateUrl: './admin-login.component.html',
+  styleUrls: ['./admin-login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class AdminLoginComponent implements OnInit {
 
   loginRef = new FormGroup({
     username: new FormControl(),
     password: new FormControl()
   }); 
+
   constructor(public loginSer:LoginService, public router:Router) { }
+  
   msg?:string;
-  ngOnInit(): void {
-  }
+
+  ngOnInit(): void {}
 
   checkAdmin():void{
     let login = this.loginRef.value;
-    console.log("here!");
     this.loginSer.checkLoginDetails(login).
     subscribe(result=>{
       if(result =="Success")
