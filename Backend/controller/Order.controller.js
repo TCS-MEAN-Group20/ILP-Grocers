@@ -27,6 +27,7 @@ let getAllOrdersById = (request,response)=>{
 
 let addOrder = (request,response)=>{
     let order = request.body
+    console.log(order);
     orderModel.insertMany(order,(err,data)=>{
         if(!err){
             response.send("successful");

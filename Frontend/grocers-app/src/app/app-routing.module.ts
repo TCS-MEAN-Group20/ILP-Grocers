@@ -16,7 +16,7 @@ import { UserEditProfileComponent } from './user-edit-profile/user-edit-profile.
 import { CheckoutPageComponent } from './checkout-page/checkout-page.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { UsersShopComponent } from './users-shop/users-shop.component';
-
+import { PurchaseComponent } from './purchase/purchase.component';
 
 
 const routes: Routes = [
@@ -31,7 +31,8 @@ const routes: Routes = [
   {path:"userLogin",component:UserLoginComponent},
   {path:"adminLogin",component:AdminLoginComponent},
   {path:"adminHome",component:AdminDashComponent},
-  {path:"userShop/:user",component:UsersShopComponent}
+  {path:"userShop/:user",component:UsersShopComponent},
+  {path:"purchaseSuccessful/:user", component:PurchaseComponent}
 ];
 
 @NgModule({
