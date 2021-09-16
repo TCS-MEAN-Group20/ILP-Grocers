@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TicketService } from '../ticket.service';
-
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-user-ticket',
@@ -19,28 +19,29 @@ export class UserTicketComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  storeTicket(data: any) {
-    if (data.username != "" && data.reason != "") {
+  storeTicket(ticketRef: NgForm) {
+    let ticket = ticketRef.value;
+    if (ticket.username != "" && ticket.reason != "") {
       let user = (<HTMLInputElement>document.getElementById("username"));
       user.value = "";
       let reason = (<HTMLInputElement>document.getElementById("reason"));
       reason.value = "";
       let msg3 = (<HTMLInputElement>document.getElementById("confirm"));
-      msg3.innerHTML = "Ticket Sumbitted Successfully"
-
-      this.ticketService.addTicket(data).subscribe(
+      msg3.innerHTML = "Ticket Sent"
+      console.log(ticket)
+      this.ticketService.updateTicket(ticket).subscribe(
         result=>console.log(result),
         error=>console.log(error)
       );
     }
 
-    if (data.username === '') {
+    if (ticket.username === '') {
       this.msg1 = 'Invalid input';
     }else {
       this.msg1 = '';
     }
 
-    if (data.reason === '') {
+    if (ticket.reason === '') {
       this.msg2 = 'Invalid input';
     }else {
       this.msg2 = "";

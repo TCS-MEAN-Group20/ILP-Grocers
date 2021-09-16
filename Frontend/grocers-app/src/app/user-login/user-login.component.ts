@@ -27,6 +27,7 @@ export class UserLoginComponent implements OnInit {
   }
 
   checkUser(){
+    this.msg = "";
     let login = this.userRef.value
     //console.log(login);
     this.userSur.signInUser(login).
@@ -42,20 +43,20 @@ export class UserLoginComponent implements OnInit {
             }
           }
           if(this.msg != "User is locked"){
-           
-          this.userSur.getUserDetailsById({uname:login.uname}).
-          subscribe(result=>{
-            this.updateUser = result
+
+            this.userSur.getUserDetailsById({uname:login.uname}).
+            subscribe(result=>{
+              this.updateUser = result
+            })
+            this.updateUser.attempts = 0
+
+            this.userSur.updateUserDetails(this.updateUser).
+            subscribe(result=>{
+              //console.log(result);
           })
-          this.updateUser.attempts = 0
 
-          this.userSur.updateUserDetails(this.updateUser).
-          subscribe(result=>{
-            //console.log(result);
-         })
-
-          this.router.navigate(["userShop",login.uname])
-          //console.log("success");
+            this.router.navigate(["userShop",login.uname])
+            //console.log("success");
 
           }
         })
@@ -74,7 +75,7 @@ export class UserLoginComponent implements OnInit {
             this.updateUser.attempts = this.updateUser.attempts + 1
             if(this.updateUser.attempts >= 3){
               //////////Lock User
-              let ticket = {username:this.updateUser.uname, reason:"too many login attempts"}
+              let ticket = {username:this.updateUser.uname, reason:"SYSTEM: AUTO-LOCK"}
               this.ticketSur.blockUser(ticket).
               subscribe(result=>{
                 console.log(result);
@@ -92,7 +93,6 @@ export class UserLoginComponent implements OnInit {
         }
       }
     })
-
     this.userRef.reset()
   }
 

@@ -18,8 +18,8 @@ export class TicketService {
     {responseType:'text'});
   }
 
-  addTicket(data: any): Observable<any> {
-    return this.http.post('http://localhost:9090/api/ticket/addTicket', data, 
+  updateTicket(data: any): Observable<any> {
+    return this.http.put('http://localhost:9090/api/ticket/updateTicket', data, 
     { responseType: 'text' })
   }
 
