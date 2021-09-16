@@ -29,11 +29,14 @@ catch(error=>console.log(error))
 app.use("/api/emp",routerEmp);
 
 //http://localhost:9090/api/req/addRequest
-http://localhost:9090/api/req/getRequest
+//http://localhost:9090/api/req/getRequest
+//http://localhost:9090/api/req/delRequest/:name
 app.use("/api/req",routerReq);
 
 //http://localhost:9090/api/ticket/getTickets
 //http://localhost:9090/api/ticket/unblockUser
+//http://localhost:9090/api/ticket/blockUser
+//http://localhost:9090/api/ticket/updateTicket
 app.use("/api/ticket",routerTicket);
 
 //http://localhost:9090/api/user/userSignIn
@@ -57,7 +60,9 @@ app.use("/api/admin",adminRouter);
 app.use("/api/cart",routerCart);
 
 //http://localhost:9090/api/product/addProduct
+//http://localhost:9090/api/product/deleteProduct/:name
 //http://localhost:9090/api/product/updateProduct
+//http://localhost:9090/api/product/getAllProducts
 app.use('/api/product',routerProduct)
 
 app.listen(9090,()=>console.log("Server running on port number 9090"))

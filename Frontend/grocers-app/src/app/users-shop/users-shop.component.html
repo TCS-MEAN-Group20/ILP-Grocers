@@ -7,42 +7,38 @@
       <div class="collapse navbar-collapse" id="navbarNav" style="font-family: Inconsolata;">
         <ul class="navbar-nav">
           <li class="nav-item active">
-            <a class="nav-link">Welcome to the store, {{userUname}}</a>
+            <a class="nav-link">Welcome, {{user}}</a>
           </li>
         </ul>
       </div>
       <ul class="navbar-nav ml-auto" style="font-family: Inconsolata;">
         <li class="nav-item">
-          <a class="nav-link" href="/userHome/{{userUname}}">
+          <a class="nav-link" href="/userHome/{{user}}">
             View-Profile
           </a>
         </li>
         <li class="nav-item">
           <!-- TODO: Add link -->
-          <a class="nav-link" href="/userShop/{{userUname}}">
-            Back to Shopping!
+          <a class="nav-link" href="/userCheckout/{{user}}">
+            My-Cart
           </a>
         </li>
       </ul>
     </nav>
-<div class = "content">
-    <table class="table">
-        <tr>
-            <th>Product Name</th>
-            <th>Price</th>
-            <th></th>
-        </tr>
-        <tr *ngFor="let p of products">
-            <td>{{p.name}}</td>
-            <td>{{p.price}}</td>
-            <td><a href="">Remove Item</a></td>
-        </tr>
-    </table>
-    <br><br>
-    <p>Total Price: {{totalPrice}}</p>
-    <br><br>
-    <form [formGroup] = "dummyRef" (ngSubmit)="checkOut()">
-        <input class="btn btn-primary" type="submit" value="Checkout!">
-    </form>
-    <span style="color: red;">{{badMsg}}</span>
+
+    <div class="container">
+		<div class="card-deck">
+			<div class="card" class="col-md-3" *ngFor="let prod of products">
+			  <img class="card-img-top" src="{{prod.imgUrl}}" alt="Invalid imageURL">
+			  <div class="card-body">
+			    <h4 class="card-title">{{prod.name}}</h4>
+			    <p class="card-text">${{prod.price}}</p>
+			    <input type="button" value="Add to cart"  class="btn btn-primary" (click)="addToCart(prod)"/>
+			  </div>
+			</div>
+        </div>
+    </div>
+    
 </div>
+  
+  

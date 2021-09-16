@@ -14,7 +14,7 @@ let addCart = (request,response)=>{
 
 let updateCart = (request,response)=>{
     let newCart = request.body
-    cartModel.updateOne({uname:newCart.uname},{$set:{products:newCart.products}}, (err,result)=>{
+    cartModel.updateOne({uname:newCart.uname},{$set:{products:newCart.products, totalPrice:newCart.totalPrice}}, (err,result)=>{
         if(!err){
             response.send(result)
         }

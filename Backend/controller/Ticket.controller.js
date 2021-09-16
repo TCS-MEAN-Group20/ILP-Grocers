@@ -18,7 +18,7 @@ let unblockUser = (request,response)=>{
     let name = request.params.username;
     ticketModel.deleteOne({username:name},(err,result)=>{
         if(!err){
-            userModel.updateOne({uname:name},{$set:{password:"reset"}}, (err,result)=>{
+            userModel.updateOne({uname:name},{$set:{password:"reset",attempts:3}}, (err,result)=>{
                 if(!err){
                     response.send("Ticket resolved")
                 }
@@ -30,6 +30,29 @@ let unblockUser = (request,response)=>{
             response.send("error");
         }
     }) 
-    
 }
-module.exports = {getTickets, unblockUser};
+
+let blockUser = (request,response)=>{
+    let user = request.body
+    ticketModel.insertMany(user, (err,result)=>{
+        if(!err){
+            response.send("ticket created")
+        }
+        else{
+            response.send(err)
+        }
+    })
+}
+
+let updateTicket = (request,response)=>{
+    let user = request.body
+    ticketModel.updateOne({username:user.username},{$set:{reason:user.reason}}, (err,result)=>{
+        if(!err){
+            response.send("ticket created")
+        }
+        else{
+            response.send(err)
+        }
+    })
+}
+module.exports = {getTickets, unblockUser, blockUser, updateTicket};

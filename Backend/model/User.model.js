@@ -10,7 +10,8 @@ let userSchema = mongoose.Schema({
     address:{type:String},
     funds:{type:Number},
     uname:{type:String,unique:true},
-    password:{type:String}
+    password:{type:String},
+    attempts:{type:Number}
 });
 
 let userModel = mongoose.model("User",userSchema);

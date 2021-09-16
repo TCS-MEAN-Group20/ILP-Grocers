@@ -24,4 +24,16 @@ let addRequest = (request,response)=>{
         }
     })
 }
-module.exports = {getRequests,addRequest};
+
+let deleteRequest = (request,response)=>{
+    let rName = request.params.name;
+    requestModel.deleteOne({productName:rName},(err,result)=>{
+        if(!err){
+            response.send(result)
+        }else {
+            response.send(err);
+        }
+    })
+}
+
+module.exports = {getRequests,addRequest,deleteRequest};
