@@ -2,7 +2,8 @@ h1 {
   text-align: center;
   color: white;
   font-family: Inconsolata;
-  padding:3vh;
+  padding: 3vh;
+  text-transform: uppercase;
 }
 .content {
   font-family: Inconsolata;
@@ -25,7 +26,7 @@ h1 {
 }
 
 .background {
-  background-image: url('../../assets/eatFresh.png');
+  background-image: url('../../assets/Shop-BG.png');
   background-size: fill;
   height: 100vh;
   overflow-x: hidden;
