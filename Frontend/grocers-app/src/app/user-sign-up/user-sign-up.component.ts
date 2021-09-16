@@ -52,7 +52,8 @@ export class UserSignUpComponent implements OnInit {
           address:user.address,
           funds:200,
           uname:uname,
-          password:user.password
+          password:user.password,
+          attempts:0
         }
         this.userSur.addUser(toDb).
         subscribe(result=>{

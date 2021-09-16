@@ -34,6 +34,7 @@ app.use("/api/req",routerReq);
 
 //http://localhost:9090/api/ticket/getTickets
 //http://localhost:9090/api/ticket/unblockUser
+//http://localhost:9090/api/ticket/blockUser
 app.use("/api/ticket",routerTicket);
 
 //http://localhost:9090/api/user/userSignIn

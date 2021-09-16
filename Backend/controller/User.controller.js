@@ -54,6 +54,7 @@ let updateUserDetails = (request,response)=>{
             address:user.address,
             phone:user.phone,
             password:user.password,
+            attempts:user.attempts
         }}, (err,result)=>{
         if(!err){
             response.send(result)
