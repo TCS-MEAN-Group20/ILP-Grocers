@@ -67,7 +67,7 @@ html {
 }
 
 .card {
-  border-radius: 10px;
+    border-radius: 10px;
   text-decoration: none;
   text-transform: uppercase;
   background-color: #fff;

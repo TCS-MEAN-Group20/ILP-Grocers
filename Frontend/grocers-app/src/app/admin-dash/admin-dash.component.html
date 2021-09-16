@@ -13,8 +13,9 @@
   </div>
   <hr>
   <div class="container">
-    <div class="card">
-      <div class="row">
+
+    <div class="row">
+      <div class="card">
         <div class="col">
           <h2>Add Products</h2>
           <form [formGroup]="addProdRef" (ngSubmit)="addProduct()" ngNativeValidate>
@@ -31,6 +32,8 @@
             <input class="btn btn-primary" type="reset" value="Reset">
           </form>
         </div>
+      </div>
+      <div class="card">
         <div class="col">
           <h2>Delete Products</h2>
           <form [formGroup]="delProdRef" (ngSubmit)="deleteProduct()" ngNativeValidate>
@@ -42,6 +45,8 @@
             <input class="btn btn-primary" type="reset" value="Reset">
           </form>
         </div>
+      </div>
+      <div class="card">
         <div class="col">
           <h2>Update Products</h2>
           <form [formGroup]="upProdRef" (ngSubmit)="updateProducts()" ngNativeValidate>
@@ -58,15 +63,16 @@
           </form>
         </div>
       </div>
+      </div>
+
 
 
     </div>
-
-  </div>
   <hr>
   <div class="container">
-    <div class="card">
-      <div class="row">
+
+    <div class="row">
+      <div class="card">
         <div class="col">
           <h2>Add Employee </h2>
           <form [formGroup]="addEmpRef" (ngSubmit)="addEmployee()" ngNativeValidate>
@@ -83,6 +89,8 @@
             {{empMsg}}
           </form>
         </div>
+      </div>
+      <div class="card">
         <div class="col">
           <h2>Delete Employee</h2>
           <form [formGroup]="delEmpRef" (ngSubmit)="delEmployee()" ngNativeValidate>
@@ -93,12 +101,13 @@
           </form>
         </div>
       </div>
+      </div>
     </div>
-  </div>
     <hr>
     <div class="container">
-      <div class="card">
-        <div class="row">
+
+      <div class="row">
+        <div class="card">
           <div class="col">
             <h2>View Requests</h2>
             <input class="btn btn-primary" type="submit" value="View/Update Requests" (click)="viewReqs()">
@@ -119,6 +128,8 @@
               </table>
             </div>
           </div>
+        </div>
+        <div class="card">
           <div class="col">
             <h2>Generate Reports</h2>
             <input class="btn btn-primary" type="submit" value="Generate Reports">

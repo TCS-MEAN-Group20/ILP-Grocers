@@ -11,19 +11,20 @@ h1 {
   align-content: center;
   font-family: Inconsolata;
   color: black;
-  width: 75%;
+  width: 100%;
   height: auto;
   padding: 1vh;
   position: relative;
   margin: 0 auto;
 }
 
+
 .card {
   -webkit-border-radius: 10px 10px 10px 10px;
   border-radius: 10px 10px 10px 10px;
   background: #fff;
   padding: 20px;
-  width: 90%;
+  width: 33%;
   max-width: 60wh;
   position: relative;
   -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
