@@ -11,7 +11,16 @@ let addProduct = (request,response)=>{
         }
     })
 }
-
+let deleteProduct = (request,response)=>{
+    let pName = request.params.name;
+    productModel.deleteOne({name:pName},(err,result)=>{
+        if(!err){
+            response.send(result)
+        }else {
+            response.send(err);
+        }
+    })
+}
 let updateProduct = (request, response)=>{
     let product = request.body
     productModel.updateOne({name:product.name}, {$set:
@@ -41,4 +50,4 @@ let getAllProducts = (request,response)=>{
     })
 }
 
-module.exports={addProduct, updateProduct, getAllProducts}
+module.exports={addProduct,deleteProduct, updateProduct, getAllProducts}
