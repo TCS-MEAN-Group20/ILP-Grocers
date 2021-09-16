@@ -47,15 +47,14 @@ export class UserLoginComponent implements OnInit {
             this.userSur.getUserDetailsById({uname:login.uname}).
             subscribe(result=>{
               this.updateUser = result
+              this.updateUser.attempts = 0
+              this.userSur.updateUserDetails(this.updateUser).
+                subscribe(result=>{
+                //console.log(result);
+                this.router.navigate(["userShop",login.uname])
+              })
             })
-            this.updateUser.attempts = 0
-
-            this.userSur.updateUserDetails(this.updateUser).
-            subscribe(result=>{
-              //console.log(result);
-          })
-
-            this.router.navigate(["userShop",login.uname])
+           
             //console.log("success");
 
           }
