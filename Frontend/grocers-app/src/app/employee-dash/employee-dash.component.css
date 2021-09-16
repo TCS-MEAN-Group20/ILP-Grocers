@@ -38,7 +38,6 @@ h1 {
   background-size: fill;
   height: 100vh;
   overflow-x: hidden;
-  overflow-y: hidden;
 }
 
 input[type=button], input[type=submit], input[type=reset] {
