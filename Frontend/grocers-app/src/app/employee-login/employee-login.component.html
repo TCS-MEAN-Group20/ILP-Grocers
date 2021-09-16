@@ -2,17 +2,15 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
+
 
 <div class="wrapper">
   <div id="formContent">
-    <!-- Tabs Titles -->
-    <!-- Icon -->
+
     <div>
       <h2 style="font-family: Inconsolata;">Employee Login</h2>
     </div>
 
-    <!-- Login Form -->
     <form [formGroup]="empRef" (ngSubmit)="checkEmp()">
       <input type="text" id="login" formControlName="uname" name="login" placeholder="Username">
       <input type="password" id="password" formControlName="password" class="fadeIn third" name="login" placeholder="Password">
