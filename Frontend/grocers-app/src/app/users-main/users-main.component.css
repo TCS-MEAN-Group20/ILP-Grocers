@@ -67,6 +67,7 @@ html {
 }
 
 .card {
+  border-radius: 10px;
   text-decoration: none;
   text-transform: uppercase;
   background-color: #fff;
@@ -86,13 +87,18 @@ html {
   background-color: #eee;
 }
 
-  .col-sm-4 {
-    display: block;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    min-block-size: 100vh;
-    padding-top: 45vh;
-    margin: 0 auto;
-    width: 50%;
-  }
+.col-sm-4 {
+  display: block;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  min-block-size: 100vh;
+  padding-top: 45vh;
+  margin: 0 auto;
+  width: 50%;
+}
+
+.col-sm-4:hover {
+  -webkit-box-shadow: 30px 30px 30px 30px rgba(0,0,0,0.3);
+  box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+}

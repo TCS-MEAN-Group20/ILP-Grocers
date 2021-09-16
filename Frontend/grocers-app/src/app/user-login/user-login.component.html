@@ -1,17 +1,26 @@
-<h1 style="text-align: center;">User Login Page</h1>
-<div class = "container"><br>
-    <form [formGroup] = "userRef" (ngSubmit)="checkUser()">
-        <label class="form-label" >Username</label>
-        <input class="form-control" type="text" formControlName="uname"/><br/>
-        <label class="form-label" >Password</label>
-        <input class="form-control" type="password" formControlName="password"/><br/>
-        <input class="btn btn-primary" type="submit" value="Sign In"/> &nbsp;&nbsp; 
-        <input class="btn btn-secondary" type="reset" value="reset"/>
-    </form><br>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+<div class="wrapper">
+  <div id="formContent">
+
+    <div>
+      <h2 style="font-family: Inconsolata;">Welcome!</h2>
+    </div>
+
+    <form [formGroup]="userRef" (ngSubmit)="checkUser()">
+      <input type="text" id="login" formControlName="uname" name="login" placeholder="Username">
+      <input type="password" id="password" formControlName="password" class="fadeIn third" name="login" placeholder="Password">
+      <input type="submit" value="Log In" style="font-family: Inconsolata;">
+    </form>
     <a routerLink="">
-        <button class="btn btn-secondary">Sign Up</button>
+      <input type="submit" value="Sign Up" style="font-family: Inconsolata; background-color: cornflowerblue">
     </a>
-    <br/>
-    <br/>
-    <span style="color: red;">{{msg}}</span>
+
+  </div>
+  <br />
+  <br />
+  <span style="color: red;">{{msg}}</span>
 </div>
