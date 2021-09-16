@@ -27,7 +27,7 @@ let storeUser = (request,response)=>{
             response.send("success")
         }
         else{
-            response.send("User ID Already exsists")
+            response.send("User Email Already exsists")
         }
     })
 }

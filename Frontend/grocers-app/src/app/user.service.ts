@@ -22,4 +22,8 @@ export class UserService {
     return this.http.post("http://localhost:9090/api/user/userSignIn",user,
     {responseType:'text'});
   }
+  addUser(user:any):Observable<any>{
+    return this.http.post("http://localhost:9090/api/user/createUser",user,
+    {responseType:'text'})
+  }
 }

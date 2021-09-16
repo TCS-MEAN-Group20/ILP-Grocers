@@ -15,4 +15,8 @@ export class CartService {
   updateCart(cart:any):Observable<any>{
     return this.http.put("http://localhost:9090/api/cart/updateCartOnItem",cart)
   }
+  addCart(cart:any):Observable<any>{
+    return this.http.post("http://localhost:9090/api/cart/addCartUponNewUser",cart,
+    {responseType:'text'})
+  }
 }

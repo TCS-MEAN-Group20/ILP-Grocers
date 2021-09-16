@@ -21,6 +21,7 @@ import { CheckoutPageComponent } from './checkout-page/checkout-page.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { UsersShopComponent } from './users-shop/users-shop.component';
 import { PurchaseComponent } from './purchase/purchase.component';
+import { UserSignUpComponent } from './user-sign-up/user-sign-up.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { PurchaseComponent } from './purchase/purchase.component';
     CheckoutPageComponent,
     UserLoginComponent,
     UsersShopComponent,
-    PurchaseComponent
+    PurchaseComponent,
+    UserSignUpComponent
   ],
   imports: [
     BrowserModule,
