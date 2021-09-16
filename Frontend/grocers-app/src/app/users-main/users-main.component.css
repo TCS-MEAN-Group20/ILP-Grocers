@@ -8,7 +8,7 @@
 }
 
 h1 {
-  font-size: 30;
+  font-size: 2vw;
   line-height: 1.1;
   max-inline-size: 15ch;
   margin: auto;
@@ -29,13 +29,11 @@ html {
 }
 
 .wrapper .bg-image {
-    background-position: right -30vh top -60vh;
     padding: 0px;
     margin-top: 0px;
     background-image: url('../../assets/ShopNow-BG2.png');
     background-color: #343a40;
     flex: 0 1 auto;
-    vertical-align: middle;
 
 }
 
@@ -77,10 +75,12 @@ html {
   font-family: Inconsolata;
   width: 10vw;
   margin: 0 auto;
-  font-size: 10px;
+  font-size: 1vw;
   -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
   box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
   text-align: center;
+  justify-content: center;
+  align-content: center;
 }
 
 .card:hover {
@@ -96,6 +96,7 @@ html {
   padding-top: 45vh;
   margin: 0 auto;
   width: 50%;
+  align-items: center;
 }
 
 .col-sm-4:hover {
