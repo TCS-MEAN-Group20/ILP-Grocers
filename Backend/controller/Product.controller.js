@@ -29,4 +29,16 @@ let updateProduct = (request, response)=>{
     })
 }
 
-module.exports={addProduct, updateProduct}
+let getAllProducts = (request,response)=>{
+    productModel.find({},(err,data)=>{
+        if(!err){
+            //sucess
+            response.json(data);
+        }else {
+            //fail
+             response.json(err);   
+        }
+    })
+}
+
+module.exports={addProduct, updateProduct, getAllProducts}

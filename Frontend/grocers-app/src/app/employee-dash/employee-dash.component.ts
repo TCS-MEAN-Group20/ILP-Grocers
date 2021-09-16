@@ -4,8 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { EmployeeService } from '../employee.service';
 import { RequestService } from '../request.service';
 import { TicketService } from '../ticket.service';
-
-// import { ProductService } from '../product.service';
+import { ProductService } from '../product.service';
 
 
 @Component({
@@ -38,8 +37,8 @@ export class EmployeeDashComponent implements OnInit {
     public router:Router,
     public empService:EmployeeService,
     public reqService:RequestService,
-    public ticketService:TicketService
-    //public prodService:ProductService
+    public ticketService:TicketService,
+    public prodService:ProductService
   ) { }
 
   ngOnInit(): void {
@@ -48,11 +47,10 @@ export class EmployeeDashComponent implements OnInit {
       result=>{this.orderArray = result},
       error=>console.log(error)
     );
-    // TODO: Add product service
-    // this.prodService.getAllProducts().subscribe(
-    //   result=>{this.productArray = result},
-    //   error=>console.log(error)
-    // );
+    this.prodService.getAllProducts().subscribe(
+      result=>{this.productArray = result},
+      error=>console.log(error)
+    );
     console.log(this.orderArray);
   }
 

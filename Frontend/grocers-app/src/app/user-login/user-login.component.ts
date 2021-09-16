@@ -30,8 +30,7 @@ export class UserLoginComponent implements OnInit {
     subscribe(result=>{
       //console.log(result)
       if(result == "success"){
-        //THIS IS THE SUCCESS BRANCH ROUTE HAS NOT BEEN MADE
-        //this.router.navigate(["",login.uname])
+        this.router.navigate(["userShop",login.uname])
         console.log("success");
       }
       else{

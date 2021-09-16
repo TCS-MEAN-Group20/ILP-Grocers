@@ -58,6 +58,7 @@ app.use("/api/cart",routerCart);
 
 //http://localhost:9090/api/product/addProduct
 //http://localhost:9090/api/product/updateProduct
+//http://localhost:9090/api/product/getAllProducts
 app.use('/api/product',routerProduct)
 
 app.listen(9090,()=>console.log("Server running on port number 9090"))
