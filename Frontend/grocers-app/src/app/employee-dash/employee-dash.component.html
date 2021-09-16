@@ -1,4 +1,4 @@
-<h1>Welcome Employee with Username {{empUname}}</h1><br>
+<h1>Welcome Employee, {{empUname}}!</h1><br>
 <div>
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
         <div class="navbar-nav">
@@ -16,16 +16,22 @@
                 <form [formGroup] = "reqRef" (ngSubmit)="sendReq()">
                     <label class="form-label" >Product</label>
                     <select class="form-control" formControlName="product" required>
-                        <!--NEED AN NG FOR FOR THE PRODUCTS AVAILABLE THIS IS TEMP-->
                         <option>Product1</option>
                         <option>Product2</option>
                         <option>Product3</option>
                         <option>Product4</option>
-                    </select><br>
+                    </select>
+                    <!-- NEED AN NG FOR FOR THE PRODUCTS AVAILABLE THIS IS TEMP
+                    <select class="form-control" formControlName="product" required>
+                        <option *ngFor="let product of productArray">{{product._id}}</option>
+                    </select> -->
+                    <br>
                     <label class="form-label" >Action</label>
                     <select class="form-control" formControlName="action" required>
-                        <option>Decrease Product Quantities</option>
-                        <option>Increase Product Quantities</option>
+                        <option>Increase Stock</option>
+                        <option>Decrease Stock</option>
+                        <option>Update Info</option>
+                        <option>Delete Product</option>
                     </select><br>
                     <input class="btn btn-primary" type="submit" value="Send Request"/> &nbsp;&nbsp; 
                     <input class="btn btn-secondary" type="reset" value="reset"/>
@@ -38,12 +44,9 @@
                 <form [formGroup] = "orderRef" (ngSubmit)="updateOrder()">
                     <label class="form-label" >Order</label>
                     <select class="form-control" formControlName="order" required>
-                        <!--NEED AN NG FOR FOR THE ORDERS AVAILABLE THIS IS TEMP-->
-                        <option>Order1</option>
-                        <option>Order2</option>
-                        <option>Order3</option>
-                        <option>Order4</option>
-                    </select><br>
+                        <option *ngFor="let order of orderArray">{{order._id}}</option>
+                    </select>
+                    <br>
                     <label class="form-label" >New Status</label>
                     <select class="form-control" formControlName="status" required>
                         <option>Shipped</option>
@@ -61,18 +64,27 @@
     <div class="col-6 box">
         <div class="content">
             <h3>Unblock Users</h3>
-                <form [formGroup] = "blockedRef" (ngSubmit)="unblockUser()">
-                    <label class="form-label" >User</label>
-                    <select class="form-control" formControlName="user" required>
-                        <!--NEED AN NG FOR FOR THE ORDERS AVAILABLE THIS IS TEMP-->
-                        <option>Blocked User 1</option>
-                        <option>Blocked User 2</option>
-                        <option>Blocked User 3</option>
-                        <option>Blocked User 4</option>
-                    </select><br>
-                    <input class="btn btn-primary" type="submit" value="Unblock User"/> &nbsp;&nbsp; 
-                    <input class="btn btn-secondary" type="reset" value="reset"/>
-                </form>
+            <input type="submit" value="View Tickets" (click)="viewTickets()"><br>
+            <br>
+            <div>
+                <table class="table">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>User Name</th>
+                            <th>Reason</th>
+                            <th>Unblock</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let t of ticketsArray">
+                            <td>{{t.username}}</td> 
+                            <td>{{t.reason}}</td>
+                            <td><input type="button" value="Unblock" (click)="unblockUser(t.username)"/></td>
+                        </tr>
+                    </tbody>
+                </table>
+                {{ticketMsg}}
+            </div>
         </div>
     </div>
     <div class="col-6 box">
@@ -81,6 +93,11 @@
             <form [formGroup] = "changeRef" (ngSubmit)="changePassword()">
                 <input class="btn btn-primary" type="submit" value="Change Password">
             </form>
+            <br>
+            <h3>Logout</h3>
+            <a routerLink="/app-users-main">
+                <button type="submit" class="btn btn-danger">Log Out</button>
+            </a>
         </div>
     </div>
 </div>
