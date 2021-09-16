@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,6 +21,8 @@ import { CheckoutPageComponent } from './checkout-page/checkout-page.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { UsersShopComponent } from './users-shop/users-shop.component';
 import { PurchaseComponent } from './purchase/purchase.component';
+import { UserSignUpComponent } from './user-sign-up/user-sign-up.component';
+import { UserTicketComponent } from './user-ticket/user-ticket.component';
 
 @NgModule({
   declarations: [
@@ -37,13 +39,16 @@ import { PurchaseComponent } from './purchase/purchase.component';
     CheckoutPageComponent,
     UserLoginComponent,
     UsersShopComponent,
-    PurchaseComponent
+    PurchaseComponent,
+    UserSignUpComponent,
+    UserTicketComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

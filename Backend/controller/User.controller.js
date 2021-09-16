@@ -27,7 +27,7 @@ let storeUser = (request,response)=>{
             response.send("success")
         }
         else{
-            response.send("User ID Already exsists")
+            response.send("User Email Already exsists")
         }
     })
 }
@@ -54,6 +54,7 @@ let updateUserDetails = (request,response)=>{
             address:user.address,
             phone:user.phone,
             password:user.password,
+            attempts:user.attempts
         }}, (err,result)=>{
         if(!err){
             response.send(result)

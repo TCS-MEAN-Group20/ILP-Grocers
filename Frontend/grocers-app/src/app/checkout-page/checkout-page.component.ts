@@ -83,7 +83,7 @@ export class CheckoutPageComponent implements OnInit {
       })
       
     
-      let tempCar = {uname:this.userUname, products:[]}
+      let tempCar = {uname:this.userUname, products:[],totalPrice:0}
       //console.log(tempCar);
       this.cartSur.updateCart(tempCar).
       subscribe(result=>{

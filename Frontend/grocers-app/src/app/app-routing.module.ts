@@ -17,6 +17,8 @@ import { CheckoutPageComponent } from './checkout-page/checkout-page.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { UsersShopComponent } from './users-shop/users-shop.component';
 import { PurchaseComponent } from './purchase/purchase.component';
+import { UserSignUpComponent } from './user-sign-up/user-sign-up.component';
+import { UserTicketComponent } from './user-ticket/user-ticket.component';
 
 
 const routes: Routes = [
@@ -32,7 +34,9 @@ const routes: Routes = [
   {path:"adminLogin",component:AdminLoginComponent},
   {path:"adminHome",component:AdminDashComponent},
   {path:"userShop/:user",component:UsersShopComponent},
-  {path:"purchaseSuccessful/:user", component:PurchaseComponent}
+  {path:"purchaseSuccessful/:user", component:PurchaseComponent},
+  {path:"userSignUp", component:UserSignUpComponent},
+  {path:"userTicket", component:UserTicketComponent}
 ];
 
 @NgModule({
