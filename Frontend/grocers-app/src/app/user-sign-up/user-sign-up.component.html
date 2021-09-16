@@ -1,0 +1,36 @@
+<h1 style="text-align: center;">Edit Profile</h1><br>
+<div>
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #0275d8;">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="#"> <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="#"></a>
+            <a class="nav-item nav-link" href="#"></a>
+          </div>
+      </nav>
+</div>
+<div class="row">
+    <div class="col-6">
+        <div class="content">
+            <h3>Sign Up</h3>
+            <form [formGroup] = "userRef" (ngSubmit)="signUp()">
+                <label class="form-label" >First Name</label>
+                <input class="form-control" type="text" formControlName="fname" required/><br/>
+                <label class="form-label" >Last Name</label>
+                <input class="form-control" type="text" formControlName="lname" required/><br/>
+                <label class="form-label" >Email</label>
+                <input class="form-control" type="text" formControlName="email" required/><br/>
+                <label class="form-label" >Phone Number</label>
+                <input class="form-control" type="text" formControlName="phone" required/><br/>
+                <label class="form-label" >Address</label>
+                <input class="form-control" type="text" formControlName="address" required/><br/>
+                <label class="form-label" >Password</label>
+                <input class="form-control" type="text" formControlName="password" required/><br/>
+                <input class="btn btn-primary" type="submit" value="Sign Up"/> &nbsp;&nbsp; 
+                <input class="btn btn-secondary" type="reset" value="reset"/>
+            </form>
+            <br><br>
+            <span style="color: red;">{{msg}}</span>
+        </div>
+    </div>
+</div>
+

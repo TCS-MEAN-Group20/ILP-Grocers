@@ -20,48 +20,42 @@
           <h2>Add Products</h2>
           <form [formGroup]="addProdRef" (ngSubmit)="addProduct()" ngNativeValidate>
             <label>Product Name: </label>
-            <input type="text" required formControlName="productName" /><br />
+            <input type="text" required formControlName="name"/><br/>
             <label>Price: </label>
-            <input type="text" required formControlName="productPrice" /><br />
+            <input type="text" required formControlName="price"/><br/>
             <label>Quantity: </label>
-            <input type="text" required formControlName="productQuantity" /><br />
+            <input type="text" required formControlName="quantity"/><br/>
             <label>Image Url: </label>
-            <input type="text" required formControlName="productImg" /><br />
-
-            <input class="btn btn-primary" type="submit" value="Add Product">
-            <input class="btn btn-primary" type="reset" value="Reset">
-          </form>
-        </div>
+            <input type="text" required formControlName="imgUrl"/><br/>
+            <input type="submit" value="Add Product">
+            <input type="reset" value="Reset">
+        </form>
       </div>
       <div class="card">
         <div class="col">
           <h2>Delete Products</h2>
           <form [formGroup]="delProdRef" (ngSubmit)="deleteProduct()" ngNativeValidate>
             <label>Product Name: </label>
-            <input type="text" required formControlName="productName" /><br />
-            <label>Quantity: </label>
-            <input type="text" required formControlName="productQuantity" /><br />
-            <input class="btn btn-primary" type="submit" value="Delete Product">
-            <input class="btn btn-primary" type="reset" value="Reset">
-          </form>
-        </div>
+            <input type="text" required formControlName="name"/><br/>
+            <input type="submit" value="Delete Product">
+            <input type="reset" value="Reset">
+        </form>
       </div>
       <div class="card">
         <div class="col">
           <h2>Update Products</h2>
           <form [formGroup]="upProdRef" (ngSubmit)="updateProducts()" ngNativeValidate>
             <label>Product Name: </label>
-            <input type="text" required formControlName="productName" /><br />
+            <input type="text" required formControlName="name"/><br/>
             <label>Price: </label>
-            <input type="text" required formControlName="productPrice" /><br />
+            <input type="text" required formControlName="price"/><br/>
             <label>Quantity: </label>
-            <input type="text" required formControlName="productQuantity" /><br />
+            <input type="text" required formControlName="quantity"/><br/>
             <label>Image Url: </label>
-            <input type="text" required formControlName="productImg" /><br />
-            <input class="btn btn-primary" type="submit" value="Update Product">
-            <input class="btn btn-primary" type="reset" value="Reset">
-          </form>
-        </div>
+            <input type="text" required formControlName="imgUrl"/><br/>
+            <input type="submit" value="Update Product">
+            <input type="reset" value="Reset">
+        </form>
       </div>
       </div>
 
@@ -103,37 +97,33 @@
       </div>
       </div>
     </div>
-    <hr>
-    <div class="container">
-
-      <div class="row">
-        <div class="card">
-          <div class="col">
-            <h2>View Requests</h2>
-            <input class="btn btn-primary" type="submit" value="View/Update Requests" (click)="viewReqs()">
-            <div>
-              <table class="table">
-                <thead class="thead-light">
-                  <tr>
-                    <th>Product Name</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let req of reqsArray">
-                    <td>{{req.productName}}</td>
-                    <td>{{req.action}}</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="col">
-            <h2>Generate Reports</h2>
-            <input class="btn btn-primary" type="submit" value="Generate Reports">
-          </div>
+  </div>
+  <hr>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h2>Requests</h2>
+        <input type="submit" value="View/Update Requests" (click)="viewReqs()"> |
+        <input type="submit" value="Toggle Requests" (click)="toggleReqs()">
+        <form [formGroup] = "delReqRef" (ngSubmit) ="delRequest()" ngNativeValidate>
+          <input type="submit" value="Delete Request">
+          <input type="text" required formControlName="name"/>
+      </form>
+        <div *ngIf ="toggle">
+          <table class="table">
+            <thead class="thead-light">
+              <tr>
+                <th>Product Name</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let req of reqsArray">
+                <td>{{req.productName}}</td> 
+                <td>{{req.action}}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
       </div>

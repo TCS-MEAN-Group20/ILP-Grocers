@@ -11,7 +11,16 @@ let addProduct = (request,response)=>{
         }
     })
 }
-
+let deleteProduct = (request,response)=>{
+    let pName = request.params.name;
+    productModel.deleteOne({name:pName},(err,result)=>{
+        if(!err){
+            response.send(result)
+        }else {
+            response.send(err);
+        }
+    })
+}
 let updateProduct = (request, response)=>{
     let product = request.body
     productModel.updateOne({name:product.name}, {$set:
@@ -29,4 +38,16 @@ let updateProduct = (request, response)=>{
     })
 }
 
-module.exports={addProduct, updateProduct}
+let getAllProducts = (request,response)=>{
+    productModel.find({},(err,data)=>{
+        if(!err){
+            //sucess
+            response.json(data);
+        }else {
+            //fail
+             response.json(err);   
+        }
+    })
+}
+
+module.exports={addProduct,deleteProduct, updateProduct, getAllProducts}
