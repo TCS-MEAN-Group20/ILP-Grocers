@@ -17,4 +17,10 @@ export class TicketService {
     return this.http.delete("http://localhost:9090/api/ticket/unblockUser/"+username,
     {responseType:'text'});
   }
+
+  addTicket(data: any): Observable<any> {
+    return this.http.post('http://localhost:9090/api/ticket/addTicket', data, 
+    { responseType: 'text' })
+  }
+
 }
