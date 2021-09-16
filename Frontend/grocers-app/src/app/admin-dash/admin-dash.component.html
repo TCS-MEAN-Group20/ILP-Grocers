@@ -88,9 +88,14 @@
   <div class="container">
     <div class="row">
       <div class="col">
-        <h2>View Requests</h2>
-        <input type="submit" value="View/Update Requests" (click)="viewReqs()">
-        <div>
+        <h2>Requests</h2>
+        <input type="submit" value="View/Update Requests" (click)="viewReqs()"> |
+        <input type="submit" value="Toggle Requests" (click)="toggleReqs()">
+        <form [formGroup] = "delReqRef" (ngSubmit) ="delRequest()" ngNativeValidate>
+          <input type="submit" value="Delete Request">
+          <input type="text" required formControlName="name"/>
+      </form>
+        <div *ngIf ="toggle">
           <table class="table">
             <thead class="thead-light">
               <tr>

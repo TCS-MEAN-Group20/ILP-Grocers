@@ -3,6 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AdminService } from '../admin.service';
 import { ProductService } from '../product.service';
+import { RequestService } from '../request.service';
 
 @Component({
   selector: 'app-admin-dash',
@@ -37,12 +38,17 @@ export class AdminDashComponent implements OnInit {
   delProdRef = new FormGroup({
     name: new FormControl()
   });
+  delReqRef = new FormGroup({
+    name: new FormControl()
+  })
 
-  constructor(public router:Router, public loginSer:AdminService, public prodSer:ProductService) { }
+  constructor(public router:Router, public loginSer:AdminService, public prodSer:ProductService, public reqSer:RequestService) { }
   empMsg?:string;
   delEmpMsg?:string;
+  delReqMsg?:string;
   prodMsg?:string;
   reqTable?:string;
+  toggle = false;
   tableS = `<table><tr> <th>Product Name</th> <th>Action</th></tr>`;
   tableB?:string;
   tableE=`</tr></table>`;
@@ -78,7 +84,17 @@ export class AdminDashComponent implements OnInit {
     this.delEmpRef.reset();
   }
   viewReqs(){
+    this.toggle = true;
     this.loginSer.getRequests().subscribe(result=>{this.reqsArray = result;},error=>console.log(error));
+  }
+  delRequest(){
+    let info = this.delReqRef.value;
+    this.reqSer.delRequestService(info,info.name).subscribe(result=>this.delReqMsg=result,error=>console.log(error))
+    this.delReqRef.reset();
+  }
+  toggleReqs()
+  {
+    this.toggle = !this.toggle;
   }
   logOut(){
     this.router.navigate(["adminLogin"])

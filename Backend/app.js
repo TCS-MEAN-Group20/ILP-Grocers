@@ -29,7 +29,8 @@ catch(error=>console.log(error))
 app.use("/api/emp",routerEmp);
 
 //http://localhost:9090/api/req/addRequest
-http://localhost:9090/api/req/getRequest
+//http://localhost:9090/api/req/getRequest
+//http://localhost:9090/api/req/delRequest/:name
 app.use("/api/req",routerReq);
 
 //http://localhost:9090/api/ticket/getTickets
