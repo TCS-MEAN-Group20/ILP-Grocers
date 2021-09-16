@@ -30,6 +30,17 @@ let unblockUser = (request,response)=>{
             response.send("error");
         }
     }) 
-    
 }
-module.exports = {getTickets, unblockUser};
+
+let blockUser = (request,response)=>{
+    let user = request.body
+    ticketModel.insertMany(user, (err,result)=>{
+        if(!err){
+            response.send("ticket created")
+        }
+        else{
+            response.send(err)
+        }
+    })
+}
+module.exports = {getTickets, unblockUser, blockUser};
