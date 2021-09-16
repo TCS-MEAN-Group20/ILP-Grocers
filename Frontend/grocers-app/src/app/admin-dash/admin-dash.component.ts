@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Login } from '../login';
-import { LoginService } from '../login.service';
+import { AdminService } from '../admin.service';
 
 @Component({
   selector: 'app-admin-dash',
@@ -40,7 +39,7 @@ export class AdminDashComponent implements OnInit {
 
   });
 
-  constructor(public router:Router, public loginSer:LoginService) { }
+  constructor(public router:Router, public loginSer:AdminService) { }
   empMsg?:string;
   delEmpMsg?:string;
   reqTable?:string;
@@ -49,6 +48,7 @@ export class AdminDashComponent implements OnInit {
   tableE=`</tr></table>`;
   reqsArray?:Array<any>
   flag = true;
+  
   ngOnInit(): void {
   }
   addProduct(){

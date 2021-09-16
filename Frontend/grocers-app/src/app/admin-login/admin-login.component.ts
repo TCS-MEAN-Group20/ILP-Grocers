@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { LoginService } from '../login.service';
+import { AdminService } from '../admin.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -15,7 +15,7 @@ export class AdminLoginComponent implements OnInit {
     password: new FormControl()
   }); 
 
-  constructor(public loginSer:LoginService, public router:Router) { }
+  constructor(public adminSer:AdminService, public router:Router) { }
   
   msg?:string;
 
@@ -23,7 +23,7 @@ export class AdminLoginComponent implements OnInit {
 
   checkAdmin():void{
     let login = this.loginRef.value;
-    this.loginSer.checkLoginDetails(login).
+    this.adminSer.checkLoginDetails(login).
     subscribe(result=>{
       if(result =="Success")
       {
