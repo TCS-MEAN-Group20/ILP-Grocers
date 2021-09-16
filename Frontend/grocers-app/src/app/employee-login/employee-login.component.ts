@@ -24,7 +24,6 @@ export class EmployeeLoginComponent implements OnInit {
 
   checkEmp(){
     let login = this.empRef.value
-    
     this.empService.checkEmpDetails(login).
     subscribe(result=>{
       if(result == "success"){

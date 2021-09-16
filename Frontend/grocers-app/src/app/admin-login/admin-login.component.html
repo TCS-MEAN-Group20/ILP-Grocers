@@ -1,13 +1,25 @@
-<h2>Admin Log In</h2>
-<div>
-    <form ngNativeValidate [formGroup]="loginRef" (ngSubmit)="checkAdmin()">
-        <label>Username</label>
-        <input type="text" required formControlName="username"/><br/>
-        <label >Password</label>
-        <input type="password" required formControlName="password"/><br/>
-        <input type="submit" value="Sign In">
-        <input type="reset" value="Reset">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="wrapper">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+    <!-- Icon -->
+    <div>
+      <h2 style="font-family: Inconsolata;">Admin Login</h2>
+    </div>
+
+    <!-- Login Form -->
+    <form [formGroup]="loginRef" (ngSubmit)="checkAdmin()">
+      <input type="text" id="login" formControlName="username" name="login" placeholder="Username">
+      <input type="password" id="password" formControlName="password" class="fadeIn third" name="login" placeholder="Password">
+      <input type="submit" value="Log In" style="font-family: Inconsolata;">
     </form>
-    <br/>
-    {{msg}}
+
+  </div>
+  <br />
+  <br />
+  <span style="color: red;">{{msg}}</span>
 </div>
