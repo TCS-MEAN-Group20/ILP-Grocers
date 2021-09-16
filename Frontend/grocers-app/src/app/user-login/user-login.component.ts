@@ -31,7 +31,7 @@ export class UserLoginComponent implements OnInit {
       //console.log(result)
       if(result == "success"){
         this.router.navigate(["userShop",login.uname])
-        console.log("success");
+        //console.log("success");
       }
       else{
         if(result == "Username not Found"){
