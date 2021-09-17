@@ -65,7 +65,7 @@ input[type=button], input[type=submit], input[type=reset] {
   border-radius: 5px 5px 5px 5px;
 }
 
-.table th {
+.table {
   background-color: transparent;
   color: black;
 }

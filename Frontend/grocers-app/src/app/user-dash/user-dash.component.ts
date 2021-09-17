@@ -23,10 +23,10 @@ export class UserDashComponent implements OnInit {
     this.activateRoute.params.subscribe(data=>this.userUname=data.user);
 
     let user = {uname:this.userUname}
-    //console.log(temp)
     this.userSur.getUserOrders(user).
     subscribe(result=>{
       this.orderArray = result;
+      console.log(result)
     },
     error=>console.log(error));
 
