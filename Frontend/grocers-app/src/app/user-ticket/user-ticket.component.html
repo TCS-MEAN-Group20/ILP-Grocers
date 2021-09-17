@@ -5,25 +5,31 @@
         crossorigin="anonymous"></script>
     
 <div class="wrapper fadeInDown">
+  <div class="card">
     <div class="container " id='wraptest'>
-        <h2 style="text-align: center;color:rgb(0, 68, 0);">Tickets</h2>
-        <form #ticketRef="ngForm" (ngSubmit)=storeTicket(ticketRef)>
-            <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">User ID</label>
-                <input type="text" class="form-control" name="username" id="username" placeholder="UserId" ngModel>
-                <span style="color:red">{{msg1}}</span> <br> <br> <br>
-            </div>
-            <div class="mb-3">
-                <label for="exampleFormControlTextarea1" class="form-label">Issue</label>
-                <textarea class="form-control" name="reason" id="reason" rows="3" placeholder="Issues" ngModel>{{msg2}}</textarea><br>
-                <span style="color:red;margin-left:3%">{{msg2}}</span> <br>
-            </div>
+      <h2 style="text-align: center;color:rgb(0, 68, 0);">Tickets</h2>
+      <form #ticketRef="ngForm" (ngSubmit)=storeTicket(ticketRef)>
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">User ID</label>
+          <input type="text" class="form-control" name="username" id="username" placeholder="UserId" ngModel>
+          <span style="color:red">{{msg1}}</span> <br> <br> <br>
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlTextarea1" class="form-label">Issue</label>
+          <textarea class="form-control" name="reason" id="reason" rows="3" placeholder="Issues" ngModel>{{msg2}}</textarea><br>
+          <span style="color:red;margin-left:3%">{{msg2}}</span> <br>
 
-            <input type="submit" value="Raise Ticket" style="position: relative; left:65%">
-            <a href="/userLogin">Back</a>
-        </form>
-        <span id='confirm' style="color:blue; position:relative; left:80%"></span>
+        </div>
+
+
+      </form>
+      <input class="btn btn-primary" type="submit" value="Raise Ticket" style="position: relative; left:65%">
+      <a href="/userLogin">Back</a>
+      <span id='confirm' style="color:blue; position:relative; left:80%"></span>
     </div>
+
+  </div>
+
 </div>
 
 
