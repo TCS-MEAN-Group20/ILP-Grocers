@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AdminService } from '../admin.service';
+import { OrderService } from '../order.service';
 import { ProductService } from '../product.service';
 import { RequestService } from '../request.service';
 
@@ -41,18 +42,28 @@ export class AdminDashComponent implements OnInit {
   delReqRef = new FormGroup({
     name: new FormControl()
   })
+  nameOrderRef = new FormGroup({
+    name: new FormControl()
+  })
 
-  constructor(public router:Router, public loginSer:AdminService, public prodSer:ProductService, public reqSer:RequestService) { }
+  constructor(public router:Router, 
+              public loginSer:AdminService, 
+              public prodSer:ProductService,
+              public reqSer:RequestService, 
+              public orderSer:OrderService) { }
   empMsg?:string;
   delEmpMsg?:string;
   delReqMsg?:string;
   prodMsg?:string;
   reqTable?:string;
   toggle = false;
+  toggleRep= true;
   tableS = `<table><tr> <th>Product Name</th> <th>Action</th></tr>`;
   tableB?:string;
   tableE=`</tr></table>`;
-  reqsArray?:Array<any>
+  reqsArray?:Array<any>;
+  orderArray?:Array<any>;
+  prodArray?:Array<any>;
   flag = true;
   
   ngOnInit(): void {
@@ -91,6 +102,23 @@ export class AdminDashComponent implements OnInit {
     let info = this.delReqRef.value;
     this.reqSer.delRequestService(info,info.name).subscribe(result=>this.delReqMsg=result,error=>console.log(error))
     this.delReqRef.reset();
+  }
+  getOrderByName()
+  {
+    let info = this.nameOrderRef.value;
+    this.orderSer.getOrderByName(info).subscribe(result=>
+      {this.orderArray = result;
+        if(this.orderArray)
+        {
+          console.log(this.orderArray)
+          for (let i = 0; i < this.orderArray.length; i++) {
+            for (let j = 0; j < this.orderArray[i].products.length; j++) {
+              console.log(this.orderArray[i].products[j]);
+              this.prodArray?.push(this.orderArray[i].products[j]);
+            }
+          }
+        }
+      }, error=>console.log(error));
   }
   toggleReqs()
   {

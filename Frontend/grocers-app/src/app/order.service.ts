@@ -13,4 +13,7 @@ export class OrderService {
     return this.http.post("http://localhost:9090/api/order/addOrder",order,
     {responseType:'text'})
   }
+  getOrderByName(order:any):Observable<any>{
+    return this.http.post("http://localhost:9090/api/order/getAllOrdersById", order)
+  }
 }

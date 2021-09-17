@@ -113,8 +113,31 @@
         </div>
       </div>
       <div class="col">
-        <h2>Generate Reports</h2>
-        <input type="submit" value="Generate Reports">
+        <h2>Reports</h2>
+        <form [formGroup] = "nameOrderRef" (ngSubmit) ="getOrderByName()" ngNativeValidate>
+          <input type="submit" value="Report by Name" placeholder="Enter username">
+          <input type="text" required formControlName="name"/>
+      </form>
+      <div *ngIf ="toggleRep">
+        <table class="table">
+          <thead class="thead-light">
+            <tr>
+              <th>User</th>
+              <th>Product</th>
+              <th>Price</th>
+              <th>Quantity</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let info of prodArray">
+              <td>John</td> 
+              <td>info.name</td>
+              <td>info.price</td>
+              <td>info.quantity</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
       </div>
     </div>
   </div>
