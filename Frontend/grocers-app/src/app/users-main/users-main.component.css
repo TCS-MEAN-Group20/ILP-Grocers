@@ -22,7 +22,6 @@ html {
 }
 
 .wrapper .bg-image {
-    background-position: right -30vh top -60vh;
     padding: 0px;
     margin-top: 0px;
     background-image: url('../../assets/ShopNow-BG2.png');
