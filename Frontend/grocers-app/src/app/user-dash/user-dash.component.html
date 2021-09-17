@@ -35,7 +35,7 @@
           </tr>
           <tr *ngFor="let o of orderArray">
             <td>{{o._id}}</td>
-            <td>{{o.products}}</td>
+            <td><span *ngFor="let p of o['products']">{{p.name}}&nbsp;</span></td>
             <td>{{o.price}}</td>
             <td>{{o.status}}</td>
           </tr>
