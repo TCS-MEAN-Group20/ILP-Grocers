@@ -57,7 +57,7 @@ export class AdminDashComponent implements OnInit {
   prodMsg?:string;
   reqTable?:string;
   toggle = false;
-  toggleRep= true;
+  toggleRep= false;
   tableS = `<table><tr> <th>Product Name</th> <th>Action</th></tr>`;
   tableB?:string;
   tableE=`</tr></table>`;
@@ -80,7 +80,6 @@ export class AdminDashComponent implements OnInit {
     this.upProdRef.reset();
   }
   deleteProduct(){
-    console.log("delete product");
     let info = this.delProdRef.value;
     this.prodSer.delProduct(info,info.name).subscribe(result=>this.prodMsg=result,error=>console.log(error));
     this.delProdRef.reset();
@@ -106,25 +105,32 @@ export class AdminDashComponent implements OnInit {
   }
   getOrderByName()
   {
+    this.toggleRep = true;
     let info = this.nameOrderRef.value;
     this.user=info.name
     this.orderSer.getOrderByName(info).subscribe(result=>
       {this.orderArray = result;
         if(this.orderArray)
         {
-          console.log(this.orderArray)
           for (let i = 0; i < this.orderArray.length; i++) {
             for (let j = 0; j < this.orderArray[i].products.length; j++) {
-              console.log(this.orderArray[i].products[j]);
               this.prodArray.push(this.orderArray[i].products[j]);
             }
           }
         }
       }, error=>console.log(error));
+      if(this.prodArray)
+      {
+        this.prodArray = [];
+      }
+      this.nameOrderRef.reset();
   }
   toggleReqs()
   {
     this.toggle = !this.toggle;
+  }
+  toggleReps(){
+    this.toggleRep = !this.toggleRep;
   }
   logOut(){
     this.router.navigate(["adminLogin"])

@@ -21,7 +21,7 @@ export class AdminService {
   }
 
   getRequests():Observable<any>{
-    return this.http.post("http://localhost:9090/api/req/getRequests","temp",{responseType:'text'})
+    return this.http.post("http://localhost:9090/api/req/getRequests","temp")
   }
 
 }
