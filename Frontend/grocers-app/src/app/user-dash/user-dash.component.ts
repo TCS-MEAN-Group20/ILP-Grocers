@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormControl, FormGroup } from '@angular/forms';
 import { UserService } from '../user.service';
+import { OrderService } from '../order.service';
 
 @Component({
   selector: 'app-user-dash',
@@ -17,16 +18,21 @@ export class UserDashComponent implements OnInit {
   constructor(
     public activateRoute:ActivatedRoute,
     public router:Router,
-    public userSur:UserService) { }
+    public userSur:UserService,
+    public orderSur:OrderService) { }
 
   ngOnInit(): void {
     this.activateRoute.params.subscribe(data=>this.userUname=data.user);
 
     let user = {uname:this.userUname}
+    
     //console.log(temp)
-    this.userSur.getUserOrders(user).
+    this.orderSur.getOrderByName(user).
     subscribe(result=>{
       this.orderArray = result;
+      console.log(result);
+      
+      //console.log(this.orderArray)
     },
     error=>console.log(error));
 
@@ -37,6 +43,8 @@ export class UserDashComponent implements OnInit {
       
     },
     error=>console.log(error));
+
+    
   }
 
   fundsRef = new FormGroup({
