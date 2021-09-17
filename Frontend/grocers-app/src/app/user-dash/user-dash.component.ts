@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormControl, FormGroup } from '@angular/forms';
 import { UserService } from '../user.service';
-import { OrderService } from '../order.service';
 
 @Component({
   selector: 'app-user-dash',
@@ -18,8 +17,7 @@ export class UserDashComponent implements OnInit {
   constructor(
     public activateRoute:ActivatedRoute,
     public router:Router,
-    public userSur:UserService,
-    public orderSur:OrderService) { }
+    public userSur:UserService) { }
 
   ngOnInit(): void {
     this.activateRoute.params.subscribe(data=>this.userUname=data.user);
@@ -27,7 +25,7 @@ export class UserDashComponent implements OnInit {
     let user = {uname:this.userUname}
     
     //console.log(temp)
-    this.orderSur.getOrderByName(user).
+    this.userSur.getUserOrders(user).
     subscribe(result=>{
       this.orderArray = result;
       console.log(result);
