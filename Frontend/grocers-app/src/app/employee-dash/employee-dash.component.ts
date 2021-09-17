@@ -5,6 +5,7 @@ import { EmployeeService } from '../employee.service';
 import { RequestService } from '../request.service';
 import { TicketService } from '../ticket.service';
 import { ProductService } from '../product.service';
+import { UserService } from '../user.service';
 
 
 @Component({
@@ -38,7 +39,8 @@ export class EmployeeDashComponent implements OnInit {
     public empService:EmployeeService,
     public reqService:RequestService,
     public ticketService:TicketService,
-    public prodService:ProductService
+    public prodService:ProductService,
+    public userSur:UserService
   ) { }
 
   ngOnInit(): void {
@@ -99,6 +101,12 @@ export class EmployeeDashComponent implements OnInit {
       result=>{this.viewTickets();},
       error=>console.log(error)
     );
+    let user = {uname:username, attempts:0}
+    this.userSur.updateUserDetails(user).
+    subscribe(result=>{
+      console.log(result);
+      
+    })
 
   }
 

@@ -5,28 +5,12 @@
     min-block-size: 59vh;
     display: grid;
     place-content: center;
-    font-size: min(200%, 5vmin);
-    box-sizing: border-box;
-    font-family: Allison;
 }
 
 
-.TextField {
-    background-color: #fff;
-    color: black;
-    text-align: center;
-    padding: 30px;
-    font-family: Inconsolata;
+a {
+  text-decoration: none;
 }
-
-h1 {
-    font-size: 9vmin;
-    line-height: 1.1;
-    max-inline-size: 15ch;
-    margin: auto;
-}
-
-
 p {
     margin: auto;
 }
@@ -38,13 +22,13 @@ html {
 }
 
 .wrapper .bg-image {
-    background-position: right -30vh top -60vh;
     padding: 0px;
     margin-top: 0px;
     background-image: url('../../assets/ShopNow-BG2.png');
     background-color: #343a40;
     flex: 0 1 auto;
     vertical-align: middle;
+
 }
 
 .body {
@@ -60,11 +44,7 @@ html {
     flex-wrap: nowrap;
     flex-direction: column;
     background-color: #343a40;
-}
 
-.form-group-button {
-    font-family: Inconsolata;
-    font-size: 40px;
 }
 
 
@@ -78,14 +58,25 @@ html {
     float: none;
 }
 
-.align-items-center {
-    -ms-flex-align: center !important;
-    align-items: center !important;
+.card {
+  border-radius: 10px;
+  text-decoration: none;
+  text-transform: uppercase;
+  background-color: #fff;
+  color: black;
+  text-align: center;
+  padding: 30px;
+  font-family: Inconsolata;
+  width: 10vw;
+  margin: 0 auto;
+  -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+  box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+  text-align: center;
+  font-size: 1.3vw;
 }
 
-.d-flex {
-    display: -ms-flexbox !important;
-    display: flex !important;
+.card:hover {
+  background-color: #eee;
 }
 
 .col-sm-4 {
@@ -97,5 +88,9 @@ html {
   padding-top: 45vh;
   margin: 0 auto;
   width: 50%;
-  
+}
+
+.col-sm-4:hover {
+  -webkit-box-shadow: 30px 30px 30px 30px rgba(0,0,0,0.3);
+  box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
 }

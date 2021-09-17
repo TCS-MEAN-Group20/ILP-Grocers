@@ -1,6 +1,53 @@
-.container{
-    width: 30%;
+h1 {
+  text-align: center;
+  color: white;
+  font-family: Inconsolata;
+  padding: 3vh;
+  text-transform: uppercase;
 }
-h1{
-    text-align: center;
+
+.content {
+  align-content: center;
+  font-family: Inconsolata;
+  color: white;
+  width: 75%;
+  height: auto;
+  padding: 2vh;
+  position: relative;
+  margin: 0 auto;
+ 
+}
+
+.card {
+  position: relative;
+  z-index: 2;
+  background: rgba(0,0,0,0.3);
+  padding: 1rem;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 3px;
+  width: 40vw;
+  margin: 0 auto;
+}
+
+.background {
+  background-image: url('../../assets/Shop-BG.png');
+  background-size: fill;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+input[type=button], input[type=submit], input[type=reset] {
+  background-color: transparent;
+  border-color: #E8E8E8;
+  color: white;
+  text-transform: uppercase;
+  font-size: 13px;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+}
+
+.table th {
+  background-color: transparent;
+  color: white;
 }

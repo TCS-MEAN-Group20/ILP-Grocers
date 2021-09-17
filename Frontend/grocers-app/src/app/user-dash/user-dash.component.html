@@ -21,56 +21,64 @@
     </nav>
 
 <div class="row">
-    <div class="col-6">
-        <div class="content">
-            <h3>Previous Orders</h3>
-            <table class="table">
-                <tr class="bg-primary" style="color: white;">
-                    <th>Order Id</th>
-                    <th>Content of Order</th>
-                    <th>Total Price</th>
-                    <th>Status</th>
-                </tr>
-                <tr *ngFor="let o of orderArray">
-                    <td>{{o._id}}</td>
-                    <td>{{o.products}}</td>
-                    <td>{{o.price}}</td>
-                    <td>{{o.status}}</td>
-                </tr>
-            </table>
-        </div>
+ 
+  <div class="col-6">
+    <div class="card">
+      <div class="content">
+        <h3>Previous Orders</h3>
+        <table class="table">
+          <tr class="bg-primary" style="color: white;">
+            <th>Order Id</th>
+            <th>Content of Order</th>
+            <th>Total Price</th>
+            <th>Status</th>
+          </tr>
+          <tr *ngFor="let o of orderArray">
+            <td>{{o._id}}</td>
+            <td>{{o.products}}</td>
+            <td>{{o.price}}</td>
+            <td>{{o.status}}</td>
+          </tr>
+        </table>
+      </div>
     </div>
+  </div>
     <div class="col-6">
+      <div class="card">
         <div class="content">
-            <h3>Edit Profile</h3>
-            <br>
-            <form [formGroup] = "changeRef" (ngSubmit)="changeRoute()">
-                <input class="btn btn-primary" type="submit" value="Edit Profile">
-            </form>
+          <h3>Edit Profile</h3>
+          <br>
+          <form [formGroup]="changeRef" (ngSubmit)="changeRoute()">
+            <input class="btn btn-primary" type="submit" value="Edit Profile">
+          </form>
         </div>
+      </div>
     </div>
 </div><br><br><br><br>
 <div class="row">
     <div class="col-6">
+      <div class="card">
         <div class="content">
-            <h3>Add Funds</h3>
-            <form [formGroup] = "fundsRef" (ngSubmit)="addFunds()">
-                <label class="form-label" >Amount to Add</label>
-                <input class="form-control" type="text" formControlName="amount"/><br>
-                <input class="btn btn-primary" type="submit" value="Add Funds"/> &nbsp;&nbsp; 
-                <input class="btn btn-secondary" type="reset" value="reset"/>
-            </form><br>
-            <p>Current Funds: ${{funds}}</p>
-            
+          <h3>Add Funds</h3>
+          <form [formGroup]="fundsRef" (ngSubmit)="addFunds()">
+            <label class="form-label">Amount to Add</label>
+            <input class="form-control" type="text" formControlName="amount" /><br>
+            <input class="btn btn-primary" type="submit" value="Add Funds" /> &nbsp;&nbsp;
+            <input class="btn btn-secondary" type="reset" value="reset" />
+          </form><br>
+          <p>Current Funds: ${{funds}}</p>
         </div>
+      </div>
     </div>
     <div class="col-6">
+      <div class="card">
         <div class="content">
-            <h3>Logout</h3>
-            <br>
-            <a routerLink = "">
-                <button class="btn btn-danger">Logout</button>
-            </a>
+          <h3>Logout</h3>
+          <br>
+          <a routerLink="">
+            <button class="btn btn-danger">Logout</button>
+          </a>
         </div>
+      </div>
     </div>
 </div>

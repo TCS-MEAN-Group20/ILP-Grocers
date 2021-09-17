@@ -1,14 +1,14 @@
 
 .mainbody {
-    background-image: url('../../assets/eatFresh.png');
-    background-position: right 0px top -60vh;
-    color: white;
-    min-block-size: 59vh;
-    display: grid;
-    place-content: center;
-    font-size: min(200%, 5vmin);
-    box-sizing: border-box;
-    font-family: Allison;
+  background-image: url('../../assets/eatFresh.png');
+  color: white;
+  min-block-size: 59vh;
+  display: grid;
+  place-content: center;
+  font-size: min(200%, 5vmin);
+  box-sizing: border-box;
+  font-family: Allison;
+  background-size: cover;
 }
 
 
