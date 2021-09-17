@@ -65,6 +65,7 @@ export class AdminDashComponent implements OnInit {
   orderArray?:Array<any>;
   user?:string;
   prodArray=[] as any;
+  reportArray=[] as any;
   flag = true;
   
   ngOnInit(): void {
@@ -115,6 +116,15 @@ export class AdminDashComponent implements OnInit {
           for (let i = 0; i < this.orderArray.length; i++) {
             for (let j = 0; j < this.orderArray[i].products.length; j++) {
               this.prodArray.push(this.orderArray[i].products[j]);
+            }
+          }
+          for (let i = 0; i < this.prodArray.length; i++) {
+            let objIndex = this.reportArray.
+              findIndex(((obj: { name: any; price: any; }) => obj.name == this.prodArray[i].name && obj.price == this.prodArray[i].price));
+            if(objIndex<0){
+              this.reportArray.push(this.prodArray[i]);
+            }else{
+              this.reportArray[objIndex].quantity=this.reportArray[objIndex].quantity+this.prodArray[i].quantity;
             }
           }
         }
