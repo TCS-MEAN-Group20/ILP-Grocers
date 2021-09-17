@@ -136,7 +136,7 @@
           <input type="button" class="btn btn-primary" value="Toggle Reports" (click)="toggleReps()">
           <form [formGroup] = "nameOrderRef" (ngSubmit) ="getOrderByName()" ngNativeValidate>
             <input type="submit" class="btn btn-primary" value="Report by Name" placeholder="Enter username">
-            <input type="text" required formControlName="name"/>
+            <input type="text" required formControlName="uname"/>
           </form>
           <div *ngIf ="toggleRep">
             <table class="table">

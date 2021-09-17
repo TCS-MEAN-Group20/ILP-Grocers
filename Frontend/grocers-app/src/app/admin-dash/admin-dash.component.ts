@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AdminService } from '../admin.service';
-import { OrderService } from '../order.service';
+import { UserService } from '../user.service';
 import { ProductService } from '../product.service';
 import { RequestService } from '../request.service';
 
@@ -43,14 +43,14 @@ export class AdminDashComponent implements OnInit {
     name: new FormControl()
   })
   nameOrderRef = new FormGroup({
-    name: new FormControl()
+    uname: new FormControl()
   })
 
   constructor(public router:Router, 
               public loginSer:AdminService, 
               public prodSer:ProductService,
               public reqSer:RequestService, 
-              public orderSer:OrderService) { }
+              public userSer:UserService) { }
   empMsg?:string;
   delEmpMsg?:string;
   delReqMsg?:string;
@@ -107,8 +107,8 @@ export class AdminDashComponent implements OnInit {
   {
     this.toggleRep = true;
     let info = this.nameOrderRef.value;
-    this.user=info.name
-    this.orderSer.getOrderByName(info).subscribe(result=>
+    this.user=info.uname;
+    this.userSer.getUserOrders(info).subscribe(result=>
       {this.orderArray = result;
         if(this.orderArray)
         {

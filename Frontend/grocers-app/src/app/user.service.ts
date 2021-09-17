@@ -12,6 +12,10 @@ export class UserService {
   getUserOrders(user:any):Observable<any>{
     return this.http.post("http://localhost:9090/api/order/getAllOrdersById",user);
   }
+  addOrder(order:any):Observable<any>{
+    return this.http.post("http://localhost:9090/api/order/addOrder",order,
+    {responseType:'text'})
+  }
   getUserDetailsById(user:any):Observable<any>{
     return this.http.post("http://localhost:9090/api/user/getUserDetailsById",user);
   }
@@ -26,4 +30,5 @@ export class UserService {
     return this.http.post("http://localhost:9090/api/user/createUser",user,
     {responseType:'text'})
   }
+
 }

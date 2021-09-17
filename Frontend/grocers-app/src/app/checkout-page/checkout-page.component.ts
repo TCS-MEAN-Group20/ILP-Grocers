@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CartService } from '../cart.service';
-import { OrderService } from '../order.service';
 import { ProductService } from '../product.service';
 import { UserService } from '../user.service';
 
@@ -24,7 +23,6 @@ export class CheckoutPageComponent implements OnInit {
     public cartSur:CartService,
     public userSur:UserService,
     public productSur:ProductService,
-    public orderSur:OrderService
   ) { }
 
   dummyRef = new FormGroup({})
@@ -77,7 +75,7 @@ export class CheckoutPageComponent implements OnInit {
         uname:this.userUname,
         status:"Ordered"
       }
-      this.orderSur.addOrder(newOrder).
+      this.userSur.addOrder(newOrder).
       subscribe(result=>{
         //console.log(result);
       })

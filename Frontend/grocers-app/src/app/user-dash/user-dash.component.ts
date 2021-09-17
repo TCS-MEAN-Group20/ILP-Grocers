@@ -24,19 +24,18 @@ export class UserDashComponent implements OnInit {
 
     let user = {uname:this.userUname}
     this.userSur.getUserOrders(user).
-    subscribe(result=>{
-      this.orderArray = result;
-      console.log(result)
-    },
-    error=>console.log(error));
+    subscribe(
+      result=>{this.orderArray = result},
+      error=>console.log(error)
+    );
 
     this.userSur.getUserDetailsById(user).
     subscribe(result=>{
       this.userJson = result;
       this.funds = this.userJson.funds;
-      
-    },
-    error=>console.log(error));
+      },
+      error=>console.log(error)
+    );
   }
 
   fundsRef = new FormGroup({

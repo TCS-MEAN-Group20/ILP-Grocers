@@ -2,7 +2,6 @@ let requestModel = require("../model/Request.model");
 
 let getRequests = (request,response)=>{
     requestModel.find({},(err,data)=>{
-        console.log("getRequest");
         if(!err){
             //sucess
             response.json(data);

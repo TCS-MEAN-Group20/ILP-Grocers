@@ -53,12 +53,10 @@ export class EmployeeDashComponent implements OnInit {
       result=>{this.productArray = result},
       error=>console.log(error)
     );
-    console.log(this.orderArray);
   }
 
   sendReq(){
     let request = this.reqRef.value
-    console.log(request)
 
     let temp = {productName:request.product, action:request.action}
     this.reqService.addRequest(temp).subscribe(
@@ -71,7 +69,6 @@ export class EmployeeDashComponent implements OnInit {
 
   updateOrder(){
     let orderObj = this.orderRef.value
-    console.log(orderObj)
 
     let temp = {order:orderObj.order, status:orderObj.status}
     this.empService.updateOrderStatus(temp).subscribe(
@@ -95,7 +92,6 @@ export class EmployeeDashComponent implements OnInit {
   }
 
   unblockUser(username:any){
-    console.log(username);
 
     this.ticketService.unblockUser(username).subscribe(
       result=>{this.viewTickets();},
@@ -103,10 +99,7 @@ export class EmployeeDashComponent implements OnInit {
     );
     let user = {uname:username, attempts:0}
     this.userSur.updateUserDetails(user).
-    subscribe(result=>{
-      console.log(result);
-      
-    })
+    subscribe(result=>{console.log(result);})
 
   }
 

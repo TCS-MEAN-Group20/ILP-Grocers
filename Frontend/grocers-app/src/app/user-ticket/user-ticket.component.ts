@@ -28,7 +28,6 @@ export class UserTicketComponent implements OnInit {
       reason.value = "";
       let msg3 = (<HTMLInputElement>document.getElementById("confirm"));
       msg3.innerHTML = "Ticket Sent"
-      console.log(ticket)
       this.ticketService.updateTicket(ticket).subscribe(
         result=>console.log(result),
         error=>console.log(error)
