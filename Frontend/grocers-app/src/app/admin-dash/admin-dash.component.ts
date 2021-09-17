@@ -63,7 +63,8 @@ export class AdminDashComponent implements OnInit {
   tableE=`</tr></table>`;
   reqsArray?:Array<any>;
   orderArray?:Array<any>;
-  prodArray?:Array<any>;
+  user?:string;
+  prodArray=[] as any;
   flag = true;
   
   ngOnInit(): void {
@@ -106,6 +107,7 @@ export class AdminDashComponent implements OnInit {
   getOrderByName()
   {
     let info = this.nameOrderRef.value;
+    this.user=info.name
     this.orderSer.getOrderByName(info).subscribe(result=>
       {this.orderArray = result;
         if(this.orderArray)
@@ -114,7 +116,7 @@ export class AdminDashComponent implements OnInit {
           for (let i = 0; i < this.orderArray.length; i++) {
             for (let j = 0; j < this.orderArray[i].products.length; j++) {
               console.log(this.orderArray[i].products[j]);
-              this.prodArray?.push(this.orderArray[i].products[j]);
+              this.prodArray.push(this.orderArray[i].products[j]);
             }
           }
         }

@@ -114,6 +114,7 @@
       </div>
       <div class="col">
         <h2>Reports</h2>
+        <h6>IMPORTANT: Clear table before getting other reports</h6>
         <form [formGroup] = "nameOrderRef" (ngSubmit) ="getOrderByName()" ngNativeValidate>
           <input type="submit" value="Report by Name" placeholder="Enter username">
           <input type="text" required formControlName="name"/>
@@ -130,10 +131,10 @@
           </thead>
           <tbody>
             <tr *ngFor="let info of prodArray">
-              <td>John</td> 
-              <td>info.name</td>
-              <td>info.price</td>
-              <td>info.quantity</td>
+              <td>{{user}}</td> 
+              <td>{{info.name}}</td>
+              <td>{{info.price}}</td>
+              <td>{{info.quantity}}</td>
             </tr>
           </tbody>
         </table>
