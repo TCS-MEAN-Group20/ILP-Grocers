@@ -14,7 +14,7 @@ let getAllOrders = (request,response)=>{
 
 let getAllOrdersById = (request,response)=>{
     let user = request.body
-    orderModel.find({uname:user.uname},(err,data)=>{
+    orderModel.find({uname:user.name},(err,data)=>{
         if(!err){
             //sucess
             response.json(data);

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AdminService } from '../admin.service';
+import { OrderService } from '../order.service';
 import { ProductService } from '../product.service';
 import { RequestService } from '../request.service';
 
@@ -41,18 +42,29 @@ export class AdminDashComponent implements OnInit {
   delReqRef = new FormGroup({
     name: new FormControl()
   })
+  nameOrderRef = new FormGroup({
+    name: new FormControl()
+  })
 
-  constructor(public router:Router, public loginSer:AdminService, public prodSer:ProductService, public reqSer:RequestService) { }
+  constructor(public router:Router, 
+              public loginSer:AdminService, 
+              public prodSer:ProductService,
+              public reqSer:RequestService, 
+              public orderSer:OrderService) { }
   empMsg?:string;
   delEmpMsg?:string;
   delReqMsg?:string;
   prodMsg?:string;
   reqTable?:string;
   toggle = false;
+  toggleRep= false;
   tableS = `<table><tr> <th>Product Name</th> <th>Action</th></tr>`;
   tableB?:string;
   tableE=`</tr></table>`;
-  reqsArray?:Array<any>
+  reqsArray?:Array<any>;
+  orderArray?:Array<any>;
+  user?:string;
+  prodArray=[] as any;
   flag = true;
   
   ngOnInit(): void {
@@ -68,7 +80,6 @@ export class AdminDashComponent implements OnInit {
     this.upProdRef.reset();
   }
   deleteProduct(){
-    console.log("delete product");
     let info = this.delProdRef.value;
     this.prodSer.delProduct(info,info.name).subscribe(result=>this.prodMsg=result,error=>console.log(error));
     this.delProdRef.reset();
@@ -92,9 +103,34 @@ export class AdminDashComponent implements OnInit {
     this.reqSer.delRequestService(info,info.name).subscribe(result=>this.delReqMsg=result,error=>console.log(error))
     this.delReqRef.reset();
   }
+  getOrderByName()
+  {
+    this.toggleRep = true;
+    let info = this.nameOrderRef.value;
+    this.user=info.name
+    this.orderSer.getOrderByName(info).subscribe(result=>
+      {this.orderArray = result;
+        if(this.orderArray)
+        {
+          for (let i = 0; i < this.orderArray.length; i++) {
+            for (let j = 0; j < this.orderArray[i].products.length; j++) {
+              this.prodArray.push(this.orderArray[i].products[j]);
+            }
+          }
+        }
+      }, error=>console.log(error));
+      if(this.prodArray)
+      {
+        this.prodArray = [];
+      }
+      this.nameOrderRef.reset();
+  }
   toggleReqs()
   {
     this.toggle = !this.toggle;
+  }
+  toggleReps(){
+    this.toggleRep = !this.toggleRep;
   }
   logOut(){
     this.router.navigate(["adminLogin"])

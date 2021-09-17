@@ -130,6 +130,35 @@
           </div>
         </div>
       </div>
+      <div class="card">
+        <div class="col">
+          <h2>Reports</h2>
+          <input type="button" class="btn btn-primary" value="Toggle Reports" (click)="toggleReps()">
+          <form [formGroup] = "nameOrderRef" (ngSubmit) ="getOrderByName()" ngNativeValidate>
+            <input type="submit" class="btn btn-primary" value="Report by Name" placeholder="Enter username">
+            <input type="text" required formControlName="name"/>
+          </form>
+          <div *ngIf ="toggleRep">
+            <table class="table">
+              <thead class="thead-light">
+                <tr>
+                  <th>User</th>
+                  <th>Product</th>
+                  <th>Price</th>
+                  <th>Quantity</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let info of prodArray">
+                  <td>{{user}}</td> 
+                  <td>{{info.name}}</td>
+                  <td>{{info.price}}</td>
+                  <td>{{info.quantity}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
       <hr>
       <div class="container">
