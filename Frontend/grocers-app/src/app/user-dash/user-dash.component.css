@@ -9,3 +9,67 @@ h1{
     padding: 10px;
     position: relative;
 }
+
+h1 {
+  text-align: center;
+  color: black;
+  font-family: Inconsolata;
+  padding: 3vh;
+  text-transform: uppercase;
+}
+
+.container {
+  align-content: center;
+  font-family: Inconsolata;
+  color: black;
+  width: 75%;
+  height: auto;
+  padding: 1vh;
+  position: relative;
+  margin: 0 auto;
+}
+
+.card {
+  font-family: Inconsolata;
+  text-transform: uppercase;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+  background: #fff;
+  padding: 20px;
+  width: 90%;
+  max-width: 60wh;
+  position: relative;
+  -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+  box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+  text-align: center;
+  margin: 30px auto;
+}
+
+.background {
+  background-image: url('../../assets/Shop-BG.png');
+  background-size: fill;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+input[type=button], input[type=submit], input[type=reset] {
+  text-transform: uppercase;
+  margin: 2px;
+  color: white;
+  font-size: 13px;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+  -webkit-box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
+  box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+}
+
+.table th {
+  background-color: transparent;
+  color: black;
+}
+
+.col{
+    text-align:right;
+}
